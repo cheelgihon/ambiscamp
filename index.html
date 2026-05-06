@@ -58,7 +58,7 @@ html,body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text
 
 /* PAGE WRAPPER */
 .page{flex:1;padding-top:var(--nav-h);position:relative;z-index:1;}
-.container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+.container{max-width:1200px;width:100%;margin:0 auto;padding:0 2rem;}
 @media(max-width:768px){.container{padding:0 1.2rem;}}
 
 /* BUTTONS */
@@ -205,7 +205,7 @@ select.fi option{background:#141428;}
 @keyframes fbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 /* TUTORS */
-.tutors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1.2rem;margin-top:2.5rem;}
+.tutors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem;}@media(max-width:900px){.tutors-grid{grid-template-columns:repeat(3,1fr);}}@media(max-width:600px){.tutors-grid{grid-template-columns:repeat(2,1fr);}}
 .tutor-card{padding:1.8rem 1.2rem;text-align:center;}
 .tutor-av-wrap{position:relative;width:80px;margin:0 auto 1rem;}
 .tutor-av{width:80px;height:80px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:2rem;position:relative;z-index:1;}
@@ -215,15 +215,32 @@ select.fi option{background:#141428;}
 .tutor-subject{font-size:0.78rem;color:var(--lilac2);font-weight:600;margin-bottom:0.4rem;}
 .tutor-medal-txt{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;padding:0.22rem 0.65rem;border-radius:50px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.18);color:#ffd700;}
 
-/* TESTIMONIALS */
+/* Kurikulum bidang picker */
+.kur-bidang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.7rem;}
+.kur-bidang-btn{padding:1rem 0.7rem;border-radius:12px;background:var(--glass);border:1px solid var(--border);color:var(--text);font-family:'Poppins',sans-serif;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:0.3rem;transition:all 0.2s;text-align:center;}
+.kur-bidang-btn:hover{border-color:rgba(151,117,250,0.5);background:rgba(151,117,250,0.08);transform:translateY(-2px);}
+.kur-bidang-emoji{font-size:1.6rem;margin-bottom:0.15rem;}
+.kur-bidang-name{font-size:0.83rem;font-weight:700;line-height:1.2;}
+.kur-bidang-level{font-size:0.7rem;color:var(--lilac2);font-weight:600;}
+
+
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;margin-top:2.5rem;}
-.testi-card{padding:1.8rem;}
-.stars{color:#ffd700;font-size:0.85rem;letter-spacing:2px;margin-bottom:0.8rem;}
-.testi-text{font-size:0.88rem;color:var(--text2);line-height:1.8;font-style:italic;margin-bottom:1.2rem;}
-.testi-text::before{content:'"';color:var(--lilac);font-size:1.8rem;line-height:0;vertical-align:-0.4rem;margin-right:3px;}
+.testi-card{padding:1.7rem 1.5rem;display:flex;flex-direction:column;gap:0.95rem;height:100%;}
+.testi-card .stars{display:inline-flex;gap:3px;font-size:0.95rem;margin:0;line-height:1;}
+.testi-card .stars .s-on{color:#ffd700;}
+.testi-card .stars .s-off{color:rgba(255,255,255,0.18);}
+.testi-text{font-size:0.86rem;color:var(--text2);line-height:1.75;font-style:italic;margin:0;flex:1;}
+.testi-text::before{content:'"';color:var(--lilac);font-size:1.7rem;line-height:0;vertical-align:-0.45rem;margin-right:3px;}
+.testi-prestasi{display:inline-flex;align-items:center;gap:0.4rem;padding:0.38rem 0.8rem;border-radius:50px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.22);color:#ffd700;font-size:0.72rem;font-weight:600;width:fit-content;letter-spacing:0.1px;}
+.testi-profile{display:flex;gap:0.85rem;align-items:center;padding-top:0.95rem;border-top:1px solid var(--border);}
+.testi-photo{width:54px;height:54px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;flex-shrink:0;border:2px solid rgba(151,117,250,0.28);box-shadow:0 4px 14px rgba(59,91,219,0.22);position:relative;color:#fff;}
+.testi-photo::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.25),transparent 50%);pointer-events:none;}
+.testi-meta{flex:1;min-width:0;}
+.testi-name{font-weight:700;font-size:0.92rem;margin-bottom:0.18rem;color:var(--text);}
+.testi-school{font-size:0.74rem;color:var(--text3);display:flex;align-items:center;gap:0.25rem;}
+/* legacy class fallbacks (in case old markup remains) */
 .testi-author{display:flex;gap:0.7rem;align-items:center;}
 .testi-av{width:38px;height:38px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;}
-.testi-name{font-weight:700;font-size:0.85rem;}
 .testi-info{font-size:0.72rem;color:var(--text3);}
 
 /* FAQ */
@@ -257,7 +274,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 .pel-hero{text-align:center;padding:3rem 0 4rem;}
 .pel-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-1.5px;margin-bottom:0.8rem;}
 .pel-hero p{font-size:1rem;color:var(--text2);max-width:540px;margin:0 auto 2rem;line-height:1.7;}
-.kelas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;margin-top:2rem;}
+.kelas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2rem;}@media(max-width:900px){.kelas-grid{grid-template-columns:repeat(2,1fr);}}@media(max-width:580px){.kelas-grid{grid-template-columns:1fr;}}
 .kelas-card{padding:1.8rem;transition:all 0.3s;}
 .kelas-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(59,91,219,0.18);}
 .kelas-ico{font-size:2rem;margin-bottom:0.8rem;}
@@ -286,8 +303,8 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 .burst{position:absolute;inset:0;pointer-events:none;}
 .particle{position:absolute;width:7px;height:7px;border-radius:50%;top:50%;left:50%;animation:burst-out var(--pd) ease-out forwards;background:var(--pc);}
 @keyframes burst-out{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(calc(-50% + var(--px)),calc(-50% + var(--py))) scale(0);opacity:0}}
-.result-area{display:none;opacity:0;transition:opacity 0.5s ease;}
-.result-area.visible{display:block;opacity:1;}
+.result-area{position:absolute;inset:0;display:none;opacity:0;align-items:center;justify-content:center;z-index:5;transition:opacity 0.4s ease;pointer-events:none;}
+.result-area.visible{display:flex;opacity:1;pointer-events:auto;}
 .tutor-result-card{background:linear-gradient(135deg,rgba(59,91,219,0.2),rgba(151,117,250,0.15));border:1px solid rgba(151,117,250,0.5);border-radius:22px;padding:2.2rem;max-width:400px;margin:0 auto;backdrop-filter:blur(20px);box-shadow:0 0 50px rgba(151,117,250,0.2),0 15px 50px rgba(0,0,0,0.3);animation:cardReveal 0.7s cubic-bezier(.34,1.56,.64,1) both;position:relative;overflow:hidden;}
 @keyframes cardReveal{from{opacity:0;transform:scale(0.7) translateY(30px) rotateX(20deg)}to{opacity:1;transform:scale(1) translateY(0) rotateX(0deg)}}
 .res-crown{font-size:1.8rem;margin-bottom:0.4rem;}
@@ -343,7 +360,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
    PROFILE PAGE
 ═══════════════════════════════ */
 #s-profile .page{padding-top:calc(var(--nav-h) + 2rem);padding-bottom:3rem;}
-.prof-inner{max-width:700px;margin:0 auto;padding:0 2rem;}
+.prof-inner{max-width:800px;width:100%;margin:0 auto;padding:0 2rem;}
 .prof-header{display:flex;align-items:center;gap:1.4rem;padding:1.6rem;margin-bottom:1.4rem;flex-wrap:wrap;}
 .prof-av{width:72px;height:72px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:700;flex-shrink:0;box-shadow:0 0 28px rgba(151,117,250,0.35);}
 .prof-name{font-size:1.2rem;font-weight:700;}
@@ -377,15 +394,15 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 /* ═══════════════════════════════
    CBT STYLES (full)
 ═══════════════════════════════ */
-#s-cbt .page{padding-top:var(--nav-h);}
+#s-cbt .page{padding-top:0;}
 .cbt-hero{text-align:center;padding:3rem 2rem 2.5rem;}
 .cbt-hero h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;margin-bottom:0.6rem;}
 .cbt-hero p{font-size:0.95rem;color:var(--text2);max-width:500px;margin:0 auto 2rem;line-height:1.7;}
 .series-filter{display:flex;gap:0.4rem;flex-wrap:wrap;}
 .sf-btn{padding:0.35rem 0.9rem;border-radius:50px;background:var(--glass);border:1px solid var(--border);color:var(--text2);font-family:'Poppins',sans-serif;font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
 .sf-btn.on{background:rgba(151,117,250,0.18);border-color:var(--lilac);color:var(--lilac2);}
-.to-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.2rem;}
-@media(max-width:500px){.to-grid{grid-template-columns:1fr;}}
+.to-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}@media(max-width:900px){.to-grid{grid-template-columns:repeat(2,1fr);}}@media(max-width:580px){.to-grid{grid-template-columns:1fr;}}
+
 .to-card{padding:1.5rem;position:relative;overflow:hidden;transition:all 0.25s;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--r);}
 .to-card:hover{border-color:var(--border2);box-shadow:0 8px 40px rgba(59,91,219,0.18);transform:translateY(-2px);}
 .to-card-reg{border-color:rgba(151,117,250,0.3);background:rgba(151,117,250,0.03);}
@@ -398,7 +415,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 
 /* DAFTAR TO */
 #s-daftar-to .page{padding-top:calc(var(--nav-h) + 2rem);padding-bottom:3rem;}
-.dft-inner{max-width:620px;margin:0 auto;padding:0 2rem;}
+.dft-inner{max-width:800px;width:100%;margin:0 auto;padding:0 2rem;}
 .dft-to-bar{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;margin-bottom:1.5rem;}
 .dft-to-ico{width:42px;height:42px;border-radius:11px;background:rgba(151,117,250,0.15);border:1px solid rgba(151,117,250,0.25);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
 .dft-step{display:none;}
@@ -449,7 +466,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 
 /* TO DETAIL */
 #s-to-detail .page{padding-top:calc(var(--nav-h) + 2rem);padding-bottom:3rem;}
-.tod-inner{max-width:680px;margin:0 auto;padding:0 2rem;}
+.tod-inner{max-width:800px;width:100%;margin:0 auto;padding:0 2rem;}
 .tod-hero{padding:2rem;margin-bottom:1.3rem;text-align:center;}
 .tod-ico{font-size:2.6rem;margin-bottom:0.5rem;}
 .tod-title{font-size:1.3rem;font-weight:700;margin-bottom:0.35rem;}
@@ -476,6 +493,9 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 /* EXAM */
 #s-exam{flex-direction:column;}
 .exam-navbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.7rem;padding:0.75rem 1.3rem;background:rgba(8,8,15,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+/* Hide global navbar while taking exam — countdown lives in exam-navbar */
+body.exam-active .navbar,body.exam-active .nav-mobile{display:none!important;}
+body.exam-active{padding-top:0!important;}
 .ex-title{font-size:0.88rem;font-weight:700;}
 .ex-sub{font-size:0.68rem;color:var(--text3);}
 .timer{font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:2px;color:var(--lilac2);}
@@ -566,8 +586,18 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 .rank-pill{display:inline-flex;align-items:center;gap:0.4rem;padding:0.38rem 1rem;border-radius:50px;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);color:var(--yellow);font-size:0.8rem;font-weight:700;margin-bottom:1.1rem;}
 
 /* LEADERBOARD */
-#s-leaderboard .page{padding-top:calc(var(--nav-h) + 2rem);padding-bottom:3rem;}
-.lb-inner{max-width:1000px;margin:0 auto;padding:0 2rem;width:100%;}
+#s-leaderboard .page{padding-top:calc(var(--nav-h) + 2rem);padding-bottom:0;}
+.lb-inner{max-width:1000px;margin:0 auto;padding:0 2rem;width:100%;flex:1 1 auto;}
+/* Leaderboard sticky footer: lb-inner grows to fill the .page (which is min-height:100vh),
+   so the footer naturally sits at the bottom of the viewport — no body bg showing below it. */
+#s-leaderboard footer{margin-top:0;}
+
+/* Partnership: responsive 2-column grid (desc/benefits | form).
+   Desktop: side-by-side. Mobile (<=900px): description stacks on top, form below. */
+.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+@media(max-width:900px){
+  .partner-grid{grid-template-columns:1fr;gap:1.6rem;}
+}
 .lb-series-tabs{display:flex;gap:0.45rem;overflow-x:auto;padding-bottom:0.4rem;margin-bottom:1.3rem;scrollbar-width:none;}
 .lb-series-tabs::-webkit-scrollbar{display:none;}
 .lb-stab{padding:0.45rem 1rem;border-radius:50px;border:1px solid var(--border);background:var(--glass);color:var(--text2);font-family:'Poppins',sans-serif;font-size:0.76rem;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all 0.2s;}
@@ -603,7 +633,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 
 /* REVIEW */
 #s-review .page{padding:3rem 0;padding-top:calc(var(--nav-h) + 2rem);}
-.review-inner{max-width:800px;margin:0 auto;padding:0 2rem;}
+.review-inner{max-width:800px;width:100%;margin:0 auto;padding:0 2rem;}
 .review-q{padding:1.4rem;margin-bottom:1.1rem;}
 .review-q-head{display:flex;align-items:center;gap:0.55rem;margin-bottom:0.85rem;flex-wrap:wrap;}
 .review-q-num{font-size:0.72rem;font-weight:700;color:var(--text3);}
@@ -642,7 +672,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justi
 /* ═══════════════════════════════
    KOMUNITAS PAGE
 ═══════════════════════════════ */
-#s-komunitas .page{padding-top:calc(var(--nav-h) + 2rem);padding-bottom:3rem;}
+#s-komunitas .page{padding-top:0;}
 .kom-hero{text-align:center;padding:3rem 2rem 2.5rem;position:relative;}
 .page-hero-anim{position:relative;overflow:hidden;padding:4rem 2rem 3rem;}
 .page-hero-anim::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(151,117,250,0.15) 0%,transparent 65%);pointer-events:none;}
@@ -958,20 +988,115 @@ section.lp-section+section.lp-section{border-top:1px solid var(--border);}
   position:relative;
   overflow:hidden;
   min-height:100vh;
+  width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:0 2rem;
-  margin-top:calc(-1 * var(--nav-h));
-  padding-top:var(--nav-h);
+  padding:var(--nav-h) 2rem 0;
+  background:none;
+  margin-bottom:0;
 }
+/* Hero ends naturally — no fade band, no ambient continuation.
+   Matches the home hero behavior so the transition feels smooth.
+   Older iterations defined a darkening ::after fade band — disable it explicitly. */
 .page-hero::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;
-  height:140px;
-  background:linear-gradient(to bottom,transparent,var(--bg));
-  pointer-events:none;z-index:1;
+  content:none;
+  display:none;
 }
+/* MATCH HOME HERO BEHAVIOR: home doesn't have a blanket colorful overlay or
+   bleeding orbs — just subtle grid + centered rings + particles. The page-hero
+   was originally given a colorful gradient overlay (.ph-bg), 3 large blurred
+   colored orbs (.ph-orb), and diagonal accent lines (.ph-diag). Together those
+   made the hero appear as a colorful "kotak" that didn't blend with the plain
+   section below. Disabling them lets the hero look continuous with its
+   surroundings while still keeping the subtle animations (grid, rings, particles). */
+.page-hero .ph-bg,
+.page-hero .ph-orb,
+.page-hero .ph-diag{
+  display:none;
+}
+
+/* ═══════════ NON-HOME PAGES: AMBIENT LIVELINESS ═══════════
+   Adds floating background orbs, card hover lifts, and subtle shimmer accents
+   to pages that have a .page-hero (pelatihan, cbt, komunitas, partnership). */
+
+/* Ambient orbs that slowly drift in the content background — injected by JS */
+.page-ambient-wrap{
+  position:absolute;inset:0;
+  pointer-events:none;overflow:hidden;
+  z-index:0;
+}
+.page-ambient-orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:var(--orb-op,0.18);
+  animation:pageOrbDrift var(--orb-d,18s) ease-in-out infinite var(--orb-dl,0s);
+  will-change:transform;
+}
+@keyframes pageOrbDrift{
+  0%,100%{transform:translate(0,0) scale(1);}
+  25%{transform:translate(40px,-30px) scale(1.08);}
+  50%{transform:translate(-20px,40px) scale(0.94);}
+  75%{transform:translate(30px,20px) scale(1.04);}
+}
+
+/* Floating tiny dots scattered through content — like distant stars */
+.page-ambient-dot{
+  position:absolute;
+  border-radius:50%;
+  animation:pageDotFloat var(--dot-d,7s) ease-in-out infinite var(--dot-dl,0s);
+  opacity:var(--dot-op,0.4);
+  will-change:transform,opacity;
+}
+@keyframes pageDotFloat{
+  0%,100%{transform:translateY(0);opacity:var(--dot-op,0.4);}
+  50%{transform:translateY(-18px);opacity:calc(var(--dot-op,0.4)*0.55);}
+}
+
+/* Hover lift for generic cards on non-home pages — subtle but adds life */
+.screen:has(.page-hero) .gc{transition:transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;}
+.screen:has(.page-hero) .gc:hover{
+  transform:translateY(-3px);
+  border-color:rgba(151,117,250,0.35);
+  box-shadow:0 10px 32px rgba(59,91,219,0.15);
+}
+
+/* Subtle pulse on emoji/icon-only nodes inside cards (heuristic: large font-size) */
+@keyframes iconBreathe{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+}
+.screen:has(.page-hero) .gc:hover > div[style*="font-size:1."],
+.screen:has(.page-hero) .gc:hover > div[style*="font-size:2"]{
+  animation:iconBreathe 1.2s ease-in-out infinite;
+}
+
+/* Shimmer on .slabel section labels — very subtle horizontal sheen */
+@keyframes slabelShimmer{
+  0%{background-position:-200% 0;}
+  100%{background-position:200% 0;}
+}
+.screen:has(.page-hero) .slabel{
+  background:linear-gradient(90deg,var(--lilac2) 0%,var(--lilac2) 40%,#fff 50%,var(--lilac2) 60%,var(--lilac2) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:slabelShimmer 6s linear infinite;
+}
+
+/* Subtle floating animation on grad-text (the colored part of headings) */
+@keyframes gradGlow{
+  0%,100%{filter:brightness(1) drop-shadow(0 0 6px rgba(151,117,250,0.25));}
+  50%{filter:brightness(1.12) drop-shadow(0 0 14px rgba(151,117,250,0.5));}
+}
+.screen:has(.page-hero) .stitle .grad-text,
+.screen:has(.page-hero) h1 .grad-text,
+.screen:has(.page-hero) h2 .grad-text{
+  animation:gradGlow 4.5s ease-in-out infinite;
+  display:inline-block;
+}
+
 .ph-content{position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:center;}
 
 /* Screens with page-hero: remove double padding */
@@ -1007,6 +1132,78 @@ footer{
 /* Kelas card buttons */
 .kelas-btn-row{display:flex;gap:0.6rem;margin-top:1rem;}
 .kelas-btn-row .btn{flex:1;justify-content:center;padding:0.6rem 0.5rem;font-size:0.82rem;}
+
+
+/* ═══ FOOTER FULLWIDTH FIX ═══ */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1.2rem;
+  width:100%;
+  position:relative;
+  z-index:2;
+  background:var(--bg);
+  margin-top:auto;
+}
+/* Make screens flex-col so footer always at bottom */
+.screen.active{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:100vh!important;
+}
+.screen.active > .page{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+
+/* ═══ TESTIMONI SLIDER ═══ */
+.testi-slider-wrap{position:relative;overflow:hidden;padding:0 0.45rem;}
+.testi-track{display:flex;transition:transform 0.55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y;}
+.testi-track:active{cursor:grabbing;}
+/* Each "page" = 3 cards. Each card takes 1/3 width on desktop, 1/2 on tablet, 100% on mobile.
+   We use flex shorthand so flex-basis forces the actual width regardless of content. */
+.testi-slide{flex:0 0 calc(33.333% - 0.9rem);max-width:calc(33.333% - 0.9rem);margin:0 0.45rem;display:flex;}
+.testi-slide > .testi-card{width:100%;}
+@media(max-width:900px){.testi-slide{flex:0 0 calc(50% - 0.9rem);max-width:calc(50% - 0.9rem);}}
+@media(max-width:640px){.testi-slide{flex:0 0 calc(100% - 0.9rem);max-width:calc(100% - 0.9rem);}}
+.testi-dots{display:flex;gap:0.55rem;justify-content:center;margin-top:1.8rem;}
+.tdot{width:8px;height:8px;border-radius:50%;background:rgba(151,117,250,0.28);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
+.tdot:hover{background:rgba(151,117,250,0.55);}
+.tdot.active{background:var(--lilac);width:26px;border-radius:4px;}
+
+
+@media(max-width:768px){
+  .partner-two-col{grid-template-columns:1fr!important;}
+}
+
+
+/* ═══ KELAS CARD REDESIGN ═══ */
+.kelas-card{
+  display:flex;flex-direction:column;
+  padding:2rem;
+  transition:all 0.3s;
+}
+.kelas-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(59,91,219,0.18);}
+.kelas-badge{
+  display:inline-block;
+  padding:0.3rem 0.9rem;
+  border-radius:50px;
+  font-size:0.75rem;
+  font-weight:700;
+  margin-bottom:0.8rem;
+  width:fit-content;
+}
+.kelas-name{font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;}
+.kelas-meta{font-size:0.82rem;color:var(--text2);display:flex;align-items:center;gap:0.4rem;margin-bottom:0.3rem;}
+.kelas-desc{font-size:0.85rem;color:var(--text2);line-height:1.65;margin:0.8rem 0;}
+.kelas-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.kelas-price{font-size:1.4rem;font-weight:700;margin-bottom:1.2rem;}
+.kelas-price small{font-size:0.78rem;font-weight:400;color:var(--text3);}
+.kelas-btns{display:flex;gap:0.7rem;margin-top:auto;}
+.kelas-btns .btn{flex:1;justify-content:center;font-size:0.85rem;}
 
 </style>
 </head>
@@ -1339,18 +1536,7 @@ footer{
 
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="lp-section" style="background:radial-gradient(ellipse at 20% 80%,rgba(59,91,219,0.07) 0%,transparent 60%)">
-      <div class="container">
-        <div class="slabel reveal" style="text-align:center">Cerita Nyata</div>
-        <div class="stitle reveal" style="text-align:center">Mereka Sudah <span class="grad-text">Membuktikannya</span></div>
-        <div class="testi-grid">
-          <div class="gc testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">Sejak gabung ONECAMP nilai try out saya naik drastis dari 45 ke 87! Tutor di sini beda banget — mereka tahu trik yang nggak ada di buku mana pun.</p><div class="testi-author"><div class="testi-av">AZ</div><div><div class="testi-name">Alya Zahra</div><div class="testi-info">Perunggu OSN Matematika 2024 · SMAN 3 Jakarta</div></div></div></div>
-          <div class="gc testi-card reveal" style="transition-delay:0.1s"><div class="stars">★★★★★</div><p class="testi-text">Komunitas ONECAMP luar biasa. Bisa tanya 24 jam, selalu ada yang bantu. Seperti punya satu angkatan medalis yang siap ngulik soal bareng.</p><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#cc5de8,#9775fa)">MR</div><div><div class="testi-name">Muhammad Rafi</div><div class="testi-info">Emas OSN Fisika 2024 · SMAN 8 Bandung</div></div></div></div>
-          <div class="gc testi-card reveal" style="transition-delay:0.2s"><div class="stars">★★★★★</div><p class="testi-text">Modulnya detail banget dan try out-nya mirip banget sama soal asli OSN. Nggak nyesel — ini yang bawa saya ke podium.</p><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#74c0fc,#3b5bdb)">DS</div><div><div class="testi-name">Dwi Sekar</div><div class="testi-info">Perak OSN Biologi 2024 · SMAN 1 Surabaya</div></div></div></div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- FAQ -->
     <section class="lp-section" style="max-width:780px;margin:0 auto;padding:4rem 2rem">
@@ -1392,8 +1578,7 @@ footer{
 ══════════════════════════════ -->
 <div class="screen" id="s-pelatihan">
   <div class="page">
-  <div class="container">
-<div class="page-hero">
+  <div class="page-hero">
       <div class="ph-bg"></div>
       <div class="ph-grid"></div>
       <div class="ph-diag"></div>
@@ -1412,6 +1597,7 @@ footer{
         </div>
       </div>
     </div>
+    <div class="container">
     <!-- Benefits strip -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:3rem">
       <div class="gc" style="padding:1.2rem;text-align:center"><div style="font-size:1.6rem;margin-bottom:0.4rem">⏱️</div><div style="font-weight:700;font-size:0.9rem">32 Jam Total</div><div style="font-size:0.75rem;color:var(--text2)">2 jam × 16 sesi live</div></div>
@@ -1438,41 +1624,44 @@ footer{
       </div>
       <!-- Bidang selector before box -->
       <div id="blind-bidang-wrap" style="text-align:center;margin-bottom:1.5rem">
-        <div style="font-size:0.82rem;color:var(--text2);margin-bottom:0.8rem">Pilih bidang OSN kamu dulu sebelum membuka box:</div>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1rem" id="blind-bidang-btns"></div>
-        <div style="font-size:0.75rem;color:var(--text3)" id="blind-bidang-hint">Pilih bidang untuk unlock kotak</div>
+        <div style="font-size:0.88rem;color:var(--text2);margin-bottom:0.8rem">Pilih bidang OSN kamu dulu sebelum membuka box:</div>
+        <select class="fi" id="blind-bidang-sel" style="max-width:280px;margin:0 auto;display:block;text-align:center" onchange="selectBlindBidang(this.value)">
+          <option value="">-- Pilih Bidang OSN --</option>
+        </select>
+        <div style="font-size:0.75rem;margin-top:0.6rem" id="blind-bidang-hint">Pilih bidang untuk unlock kotak</div>
       </div>
-      <div id="blind-box-wrap" style="text-align:center;display:none">
-        <div class="box-container" id="boxContainer" onclick="handleBoxClick()">
-          <div class="mystery-box" id="mysteryBox">
-            <div class="box-face box-body"><span id="boxEmoji">🎁</span><div class="box-shine"></div></div>
-            <div class="box-lid"><div class="lid-ribbon"></div></div>
+      <!-- Stage: box and result-card occupy the same area; result is layered on top of box -->
+      <div id="blind-stage" style="position:relative;display:none">
+        <div id="blind-box-wrap" style="text-align:center">
+          <div class="box-container" id="boxContainer" onclick="handleBoxClick()">
+            <div class="mystery-box" id="mysteryBox">
+              <div class="box-face box-body"><span id="boxEmoji">🎁</span><div class="box-shine"></div></div>
+              <div class="box-lid"><div class="lid-ribbon"></div></div>
+            </div>
+            <div class="qmarks"><span class="qm" style="top:10%;left:5%;--qd:2.8s;--qdelay:0s">?</span><span class="qm" style="top:5%;right:10%;--qd:3.2s;--qdelay:-1s">?</span><span class="qm" style="bottom:8%;left:0%;--qd:2.5s;--qdelay:-0.5s">?</span><span class="qm" style="bottom:5%;right:5%;--qd:3s;--qdelay:-1.5s">?</span></div>
+            <div class="burst" id="burst"></div>
           </div>
-          <div class="qmarks"><span class="qm" style="top:10%;left:5%;--qd:2.8s;--qdelay:0s">?</span><span class="qm" style="top:5%;right:10%;--qd:3.2s;--qdelay:-1s">?</span><span class="qm" style="bottom:8%;left:0%;--qd:2.5s;--qdelay:-0.5s">?</span><span class="qm" style="bottom:5%;right:5%;--qd:3s;--qdelay:-1.5s">?</span></div>
-          <div class="burst" id="burst"></div>
+          <div style="margin-top:1rem">
+            <p class="box-hint">Klik kotak untuk preview!</p>
+            <button class="blind-open-btn" id="openBtn" onclick="openBox()" style="margin-top:0.8rem">🎲 Buka Blind Box</button>
+          </div>
         </div>
-        <div style="margin-top:1rem">
-          <p class="box-hint">Klik kotak untuk preview!</p>
-          <button class="blind-open-btn" id="openBtn" onclick="openBox()" style="margin-top:0.8rem">🎲 Buka Blind Box</button>
-        </div>
-      </div>
-      <div class="result-area" id="resultArea">
-        <div class="tutor-result-card">
-          <div class="res-crown" id="resultCrown">🎉</div>
-          <div class="res-av-wrap"><div class="res-av-inner" id="resultEmoji">🧮</div></div>
-          <div class="res-name" id="resultName">–</div>
-          <div class="res-subject" id="resultSubject">–</div>
-          <div class="res-medal" id="resultMedal">🏅 –</div>
-          <p class="res-bio" id="resultBio">–</p>
-          <div class="res-tags" id="resultTags"></div>
-          <div class="res-actions">
-            <button class="btn-reshuffle" id="reshuffleBtn" onclick="reshuffleWithReset()">🔀 Free Reshuffle</button>
-            <button class="btn btn-g btn-sm" onclick="claimBlindTutor()">✅ Daftar Semi-Private</button>
+        <div class="result-area" id="resultArea">
+          <div class="tutor-result-card" style="position:relative">
+            <button onclick="closeBlindResult()" style="position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid var(--border);color:var(--text2);font-size:0.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:all 0.2s" title="Tutup">✕</button>
+            <div class="res-crown" id="resultCrown">🎉</div>
+            <div class="res-av-wrap"><div class="res-av-inner" id="resultEmoji">🧮</div></div>
+            <div class="res-name" id="resultName">–</div>
+            <div class="res-subject" id="resultSubject">–</div>
+            <div class="res-medal" id="resultMedal">🏅 –</div>
+            <p class="res-bio" id="resultBio">–</p>
+            <div class="res-tags" id="resultTags"></div>
+            <div class="res-actions">
+              <button class="btn-reshuffle" id="reshuffleBtn" onclick="reshuffleWithReset()">🔀 Free Reshuffle</button>
+              <button class="btn btn-g btn-sm" onclick="claimBlindTutor()">✅ Daftar Semi-Private</button>
+            </div>
+            <div class="shuffle-counter">Reshuffle tersisa: <span id="shuffleLeft">1</span>x</div>
           </div>
-          <div style="margin-top:0.8rem">
-            <button onclick="resetBlindBox()" style="background:transparent;border:none;color:var(--text3);font-family:'Poppins',sans-serif;font-size:0.75rem;cursor:pointer;text-decoration:underline">✕ Tutup & Kembali ke Kotak</button>
-          </div>
-          <div class="shuffle-counter">Reshuffle tersisa: <span id="shuffleLeft">1</span>x</div>
         </div>
       </div>
     </section>
@@ -1516,6 +1705,101 @@ footer{
 
     <div style="height:3rem"></div>
   </div>
+  
+      <!-- TESTIMONI SLIDER -->
+      <div class="container" style="margin-top:4rem;padding-top:3rem;padding-bottom:4.5rem;border-top:1px solid var(--border)">
+        <div class="slabel" style="text-align:center">Kata Mereka</div>
+        <div class="stitle" style="text-align:center;margin-bottom:2rem">Cerita <span class="grad-text">Nyata</span></div>
+        <div class="testi-slider-wrap" id="tslider-pel">
+          <div class="testi-track" id="ttrack-pel">
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Sejak gabung ONECAMP nilai try out saya naik drastis dari 45 ke 87! Tutor di sini beda banget — mereka tahu trik yang nggak ada di buku mana pun.</p>
+              <div class="testi-prestasi">🥉 Perunggu OSN Matematika 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#9775fa,#3b5bdb)">AZ</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Alya Zahra</div>
+                  <div class="testi-school">📍 SMAN 3 Jakarta</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Komunitas ONECAMP luar biasa. Bisa tanya 24 jam, selalu ada yang bantu. Seperti punya satu angkatan medalis yang siap ngulik soal bareng.</p>
+              <div class="testi-prestasi">🥇 Emas OSN Fisika 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#cc5de8,#9775fa)">MR</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Muhammad Rafi</div>
+                  <div class="testi-school">📍 SMAN 8 Bandung</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Modulnya detail banget dan try out-nya mirip banget sama soal asli OSN. Nggak nyesel — ini yang bawa saya ke podium.</p>
+              <div class="testi-prestasi">🥈 Perak OSN Biologi 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#74c0fc,#3b5bdb)">DS</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Dwi Sekar</div>
+                  <div class="testi-school">📍 SMAN 1 Surabaya</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="4 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-off">★</span></div>
+              <p class="testi-text">Pelatihan ONECAMP beda level. Tutor medalis beneran ngerti cara berpikir soal olimpiade, bukan cuma hafalan rumus.</p>
+              <div class="testi-prestasi">🥈 Perak OSN Kimia 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#ffd700,#f59e0b)">RN</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Rizal Nanda</div>
+                  <div class="testi-school">📍 SMAN 2 Yogyakarta</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Komunitas gratis tapi kualitasnya premium. Ada quiz mingguan, bahas soal bareng, dan admin yang aktif banget ngejawab pertanyaan.</p>
+              <div class="testi-prestasi">🌟 Anggota Komunitas OSN</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#34d399,#059669)">SP</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Sari Pratiwi</div>
+                  <div class="testi-school">📍 SMAN 1 Semarang</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="4 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-off">★</span></div>
+              <p class="testi-text">Try out ONECAMP levelnya pas banget. Setelah rutin ikut 3 seri, analisis kelemahan saya jadi jauh lebih tajam dan skor naik 30 poin.</p>
+              <div class="testi-prestasi">📝 Peserta TO Seri 1–3</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#f87171,#dc2626)">BK</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Bagas Kurnia</div>
+                  <div class="testi-school">📍 SMAN 5 Medan</div>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+        <div class="testi-dots" id="tdots-pel"></div>
+      </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">ONECAMP</div>
+      <div class="footer-socials">
+        <a class="social-btn" href="https://instagram.com/ambiscamp" target="_blank" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="social-btn" href="https://tiktok.com/@ambiscamp" target="_blank" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+        <a class="social-btn" href="https://linkedin.com/company/ambiscamp" target="_blank" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a class="social-btn" href="https://whatsapp.com/channel/ambiscamp" target="_blank" title="WhatsApp Channel"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        <a class="social-btn" href="https://wa.me/6281234567890" target="_blank" title="Contact Person"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+      <div class="footer-copy">© 2025 ONECAMP. Hak Cipta Dilindungi.</div>
+    </footer>
   </div>
 </div>
 
@@ -1524,8 +1808,7 @@ footer{
 ══════════════════════════════ -->
 <div class="screen" id="s-partnership">
   <div class="page">
-  <div class="container">
-<div class="page-hero">
+  <div class="page-hero">
       <div class="ph-bg"></div>
       <div class="ph-grid"></div>
       <div class="ph-diag"></div>
@@ -1537,68 +1820,137 @@ footer{
       <div class="ph-content">
         <div class="anim-pill"><div class="anim-pulse"></div>Kolaborasi & Kemitraan</div>
         <h1 style="font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-1.5px;margin-bottom:0.8rem">Bergabung sebagai <span class="grad-text">Mitra</span></h1>
-        <p style="font-size:0.95rem;color:var(--text2);max-width:520px;margin:0 auto;line-height:1.75">Jadilah bagian dari ekosistem ONECAMP sebagai affiliator atau sekolah mitra dan dapatkan benefit eksklusif.</p>
-      </div>
-    </div>
-    <div style="max-width:680px;margin:0 auto">
-      <div class="partner-tabs" style="max-width:360px;margin:0 auto 2.5rem">
-        <button class="ptab on" id="ptab-aff" onclick="switchPartnerTab('affiliator')">🤝 Affiliator</button>
-        <button class="ptab" id="ptab-school" onclick="switchPartnerTab('school')">🏫 School Partner</button>
-      </div>
-
-      <!-- AFFILIATOR FORM -->
-      <div id="partner-affiliator">
-        <div class="gc partner-card-info" style="margin-bottom:1.5rem">
-          <div class="pci-title">✨ Menjadi Affiliator ONECAMP</div>
-          <div class="pci-sub">Bagikan link afiliasi kamu dan dapatkan komisi untuk setiap referral yang berhasil mendaftar program ONECAMP.</div>
-          <ul class="benefit-list">
-            <li>Komisi 15% untuk setiap konversi pelatihan</li>
-            <li>Komisi 10% untuk setiap konversi try out premium</li>
-            <li>Dashboard real-time untuk tracking referral & pendapatan</li>
-            <li>Materi promosi eksklusif dari tim marketing ONECAMP</li>
-            <li>Komunitas affiliator dan pelatihan strategi promosi</li>
-          </ul>
-        </div>
-        <div class="gc" style="padding:1.8rem">
-          <div style="font-size:0.78rem;font-weight:700;color:var(--text2);margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:1px">Formulir Pendaftaran Affiliator</div>
-          <div class="frow"><div class="fg"><label class="fl">Nama Lengkap *</label><input class="fi" id="aff-nama" placeholder="Nama kamu" type="text"></div><div class="fg"><label class="fl">Email *</label><input class="fi" id="aff-email" placeholder="email@kamu.com" type="email"></div></div>
-          <div class="fg"><label class="fl">No. WhatsApp *</label><input class="fi" id="aff-wa" placeholder="08xxxxxxxxxx" type="tel"></div>
-          <div class="fg"><label class="fl">Instagram *</label><input class="fi" id="aff-ig" placeholder="@username" type="text"></div>
-          <div class="fg"><label class="fl">Platform Utama *</label><select class="fi" id="aff-platform"><option value="">Pilih...</option><option>Instagram</option><option>TikTok</option><option>YouTube</option><option>Twitter/X</option><option>Telegram</option><option>Blog/Website</option><option>Lainnya</option></select></div>
-          <div class="fg"><label class="fl">Jumlah Followers/Subscriber</label><select class="fi" id="aff-followers"><option value="">Pilih range...</option><option>< 1.000</option><option>1.000 – 10.000</option><option>10.000 – 50.000</option><option>50.000 – 100.000</option><option>> 100.000</option></select></div>
-          <div class="fg"><label class="fl">Motivasi Bergabung</label><textarea class="fi" id="aff-motivasi" rows="3" placeholder="Ceritakan mengapa kamu ingin menjadi affiliator ONECAMP..." style="resize:vertical"></textarea></div>
-          <button class="btn btn-g btn-full" onclick="submitAffiliator()">Kirim Pendaftaran →</button>
-        </div>
-      </div>
-
-      <!-- SCHOOL PARTNER FORM -->
-      <div id="partner-school" style="display:none">
-        <div class="gc partner-card-info" style="margin-bottom:1.5rem">
-          <div class="pci-title">🏫 School Partner ONECAMP</div>
-          <div class="pci-sub">Jadikan sekolahmu mitra resmi ONECAMP dan berikan akses terbaik bagi siswa-siswi berprestasi di bidang olimpiade sains.</div>
-          <ul class="benefit-list">
-            <li>Diskon khusus harga pelatihan untuk siswa sekolah mitra (up to 30%)</li>
-            <li>Dedicated liaison dari tim ONECAMP untuk koordinasi program</li>
-            <li>Laporan performa siswa secara berkala untuk guru pembina</li>
-            <li>Branding sekolah di platform ONECAMP sebagai mitra resmi</li>
-            <li>Akses prioritas ke try out eksklusif dan webinar olimpiade</li>
-          </ul>
-        </div>
-        <div class="gc" style="padding:1.8rem">
-          <div style="font-size:0.78rem;font-weight:700;color:var(--text2);margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:1px">Formulir Pendaftaran School Partner</div>
-          <div class="fg"><label class="fl">Nama Sekolah *</label><input class="fi" id="sp-sekolah" placeholder="Nama lengkap sekolah" type="text"></div>
-          <div class="frow"><div class="fg"><label class="fl">Jenjang *</label><select class="fi" id="sp-jenjang"><option value="">Pilih...</option><option>SMP</option><option>SMA</option><option>SMP & SMA</option></select></div><div class="fg"><label class="fl">Akreditasi</label><select class="fi" id="sp-akreditasi"><option value="">Pilih...</option><option>A (Unggul)</option><option>B (Baik)</option><option>C</option></select></div></div>
-          <div class="frow"><div class="fg"><label class="fl">Kota *</label><input class="fi" id="sp-kota" placeholder="Kota/Kabupaten" type="text"></div><div class="fg"><label class="fl">Provinsi *</label><input class="fi" id="sp-prov" placeholder="Provinsi" type="text"></div></div>
-          <div class="fg"><label class="fl">Nama Guru Pembina / PIC *</label><input class="fi" id="sp-pic" placeholder="Nama lengkap" type="text"></div>
-          <div class="frow"><div class="fg"><label class="fl">Email PIC *</label><input class="fi" id="sp-email" placeholder="email@sekolah.sch.id" type="email"></div><div class="fg"><label class="fl">WhatsApp PIC *</label><input class="fi" id="sp-wa" placeholder="08xxxxxxxxxx" type="tel"></div></div>
-          <div class="fg"><label class="fl">Estimasi Jumlah Siswa OSN per Tahun</label><select class="fi" id="sp-siswa"><option value="">Pilih...</option><option>1 – 10 siswa</option><option>11 – 30 siswa</option><option>31 – 60 siswa</option><option>> 60 siswa</option></select></div>
-          <div class="fg"><label class="fl">Program yang Diminati</label><select class="fi" id="sp-program"><option value="">Pilih...</option><option>Try Out saja</option><option>Pelatihan saja</option><option>Try Out + Pelatihan</option><option>Semua program</option></select></div>
-          <button class="btn btn-g btn-full" onclick="submitSchoolPartner()">Kirim Pendaftaran →</button>
+        <p style="font-size:0.95rem;color:var(--text2);max-width:520px;margin:0 auto 1.6rem;line-height:1.75">Jadilah bagian dari ekosistem ONECAMP sebagai affiliator atau sekolah mitra dan dapatkan benefit eksklusif.</p>
+        <div style="display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-g" onclick="scrollToPartnerSection('school-partner-section')">🏫 School Partner</button>
+          <button class="btn btn-o" onclick="scrollToPartnerSection('affiliator-section')">🤝 Affiliator</button>
         </div>
       </div>
     </div>
+    <div class="container" style="padding-top:3rem;padding-bottom:4rem">
 
-    <footer style="margin-top:auto">
+      <!-- STATS ROW (animated) -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:4rem" id="part-stats-row">
+        <div class="gc" style="padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent"><span class="count" data-target="50">0</span>+</div>
+          <div style="font-size:0.8rem;color:var(--text2);margin-top:0.3rem">Sekolah Partner</div>
+        </div>
+        <div class="gc" style="padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent"><span class="count" data-target="120">0</span>+</div>
+          <div style="font-size:0.8rem;color:var(--text2);margin-top:0.3rem">Affiliator Aktif</div>
+        </div>
+        <div class="gc" style="padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent"><span class="count" data-target="34">0</span></div>
+          <div style="font-size:0.8rem;color:var(--text2);margin-top:0.3rem">Provinsi Terjangkau</div>
+        </div>
+        <div class="gc" style="padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent"><span class="count" data-target="15">0</span>%</div>
+          <div style="font-size:0.8rem;color:var(--text2);margin-top:0.3rem">Komisi Affiliator</div>
+        </div>
+      </div>
+
+      <!-- SECTION 1: SCHOOL PARTNER -->
+      <div id="school-partner-section"></div>
+      <div style="margin-bottom:5rem">
+        <div class="slabel">Mitra Sekolah</div>
+        <div class="stitle" style="margin-bottom:2rem">🏫 School <span class="grad-text">Partner</span></div>
+        <div class="partner-grid">
+          <!-- LEFT (desktop) / TOP (mobile): Benefits -->
+          <div>
+            <p style="font-size:0.95rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem">Jadikan sekolahmu mitra resmi ONECAMP dan berikan akses terbaik bagi siswa-siswi berprestasi di bidang olimpiade sains.</p>
+            <div style="display:flex;flex-direction:column;gap:0.9rem">
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(151,117,250,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">💰</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Diskon Khusus hingga 30%</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Harga pelatihan spesial untuk seluruh siswa sekolah mitra</div></div>
+              </div>
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(151,117,250,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">📊</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Laporan Performa Siswa</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Laporan berkala untuk guru pembina OSN</div></div>
+              </div>
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(151,117,250,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">⭐</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Branding Sekolah Mitra</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Logo dan nama sekolah ditampilkan di platform ONECAMP</div></div>
+              </div>
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(151,117,250,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🎯</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Akses Prioritas Try Out</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Try out eksklusif dan webinar olimpiade untuk sekolah mitra</div></div>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT (desktop) / BOTTOM (mobile): Form -->
+          <div class="gc" style="padding:2rem">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--text2);margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:1px">Formulir Pendaftaran School Partner</div>
+            <div class="fg"><label class="fl">Nama Sekolah *</label><input class="fi" id="sp-sekolah" placeholder="Nama lengkap sekolah" type="text"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+              <div class="fg"><label class="fl">Jenjang *</label><select class="fi" id="sp-jenjang"><option value="">Pilih...</option><option>SMP</option><option>SMA</option><option>SMP &amp; SMA</option></select></div>
+              <div class="fg"><label class="fl">Akreditasi</label><select class="fi" id="sp-akreditasi"><option value="">Pilih...</option><option>A (Unggul)</option><option>B (Baik)</option><option>C</option></select></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+              <div class="fg"><label class="fl">Kota *</label><input class="fi" id="sp-kota" placeholder="Kota/Kabupaten" type="text"></div>
+              <div class="fg"><label class="fl">Provinsi *</label><input class="fi" id="sp-prov" placeholder="Provinsi" type="text"></div>
+            </div>
+            <div class="fg"><label class="fl">Nama Guru Pembina / PIC *</label><input class="fi" id="sp-pic" placeholder="Nama lengkap" type="text"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+              <div class="fg"><label class="fl">Email PIC *</label><input class="fi" id="sp-email" placeholder="email@sekolah.sch.id" type="email"></div>
+              <div class="fg"><label class="fl">WhatsApp PIC *</label><input class="fi" id="sp-wa" placeholder="08xxxxxxxxxx" type="tel"></div>
+            </div>
+            <div class="fg"><label class="fl">Estimasi Siswa OSN / Tahun</label><select class="fi" id="sp-siswa"><option value="">Pilih...</option><option>1–10 siswa</option><option>11–30 siswa</option><option>31–60 siswa</option><option>&gt;60 siswa</option></select></div>
+            <button class="btn btn-g btn-full" onclick="submitSchoolPartner()">Kirim Pendaftaran →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div style="border-top:1px solid var(--border);margin-bottom:4rem"></div>
+
+      <!-- SECTION 2: AFFILIATOR -->
+      <div id="affiliator-section"></div>
+      <div style="margin-bottom:3rem">
+        <div class="slabel">Program Afiliasi</div>
+        <div class="stitle" style="margin-bottom:2rem">🤝 Jadi <span class="grad-text">Affiliator</span></div>
+        <div class="partner-grid">
+          <!-- LEFT (desktop) / TOP (mobile): Benefits -->
+          <div>
+            <p style="font-size:0.95rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem">Bagikan link afiliasi kamu dan dapatkan komisi untuk setiap referral yang berhasil mendaftar program ONECAMP.</p>
+            <div style="display:flex;flex-direction:column;gap:0.9rem">
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">💸</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Komisi 15% per Konversi Pelatihan</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Komisi 10% untuk setiap konversi try out premium</div></div>
+              </div>
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">📈</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Dashboard Real-time</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Tracking referral dan pendapatan secara langsung</div></div>
+              </div>
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🎨</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Materi Promosi Eksklusif</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Kit promosi dari tim marketing ONECAMP</div></div>
+              </div>
+              <div class="gc" style="padding:1rem 1.2rem;display:flex;gap:0.8rem;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:9px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🌐</div>
+                <div><div style="font-weight:700;font-size:0.88rem;margin-bottom:0.2rem">Komunitas Affiliator</div><div style="font-size:0.78rem;color:var(--text2);line-height:1.5">Pelatihan strategi promosi dan networking sesama affiliator</div></div>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT (desktop) / BOTTOM (mobile): Form -->
+          <div class="gc" style="padding:2rem">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--text2);margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:1px">Formulir Pendaftaran Affiliator</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+              <div class="fg"><label class="fl">Nama Lengkap *</label><input class="fi" id="aff-nama" placeholder="Nama kamu" type="text"></div>
+              <div class="fg"><label class="fl">Email *</label><input class="fi" id="aff-email" placeholder="email@kamu.com" type="email"></div>
+            </div>
+            <div class="fg"><label class="fl">No. WhatsApp *</label><input class="fi" id="aff-wa" placeholder="08xxxxxxxxxx" type="tel"></div>
+            <div class="fg"><label class="fl">Instagram *</label><input class="fi" id="aff-ig" placeholder="@username" type="text"></div>
+            <div class="fg"><label class="fl">Platform Utama *</label><select class="fi" id="aff-platform"><option value="">Pilih...</option><option>Instagram</option><option>TikTok</option><option>YouTube</option><option>Twitter/X</option><option>Telegram</option><option>Blog/Website</option><option>Lainnya</option></select></div>
+            <div class="fg"><label class="fl">Jumlah Followers</label><select class="fi" id="aff-followers"><option value="">Pilih range...</option><option>&lt;1.000</option><option>1.000–10.000</option><option>10.000–50.000</option><option>50.000–100.000</option><option>&gt;100.000</option></select></div>
+            <div class="fg"><label class="fl">Motivasi Bergabung</label><textarea class="fi" id="aff-motivasi" rows="3" placeholder="Ceritakan mengapa kamu ingin menjadi affiliator ONECAMP..." style="resize:vertical"></textarea></div>
+            <button class="btn btn-g btn-full" onclick="submitAffiliator()">Kirim Pendaftaran →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- FOOTER -->
+    <footer>
       <div class="footer-logo">ONECAMP</div>
       <div class="footer-socials">
         <a class="social-btn" href="https://instagram.com/ambiscamp" target="_blank" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1609,9 +1961,6 @@ footer{
       </div>
       <div class="footer-copy">© 2025 ONECAMP. Hak Cipta Dilindungi.</div>
     </footer>
-
-    <div style="height:3rem"></div>
-  </div>
   </div>
 </div>
 <!-- ══════════════════════════════
@@ -1668,15 +2017,15 @@ footer{
 <div class="screen" id="s-profile">
   <div class="page">
   <div class="container">
-  <div class="prof-inner" style="padding:0">
-    <div class="page-banner slide-up" style="margin-bottom:1.5rem;text-align:left;padding:1.8rem 2rem">
-      <div class="pb-grid"></div><div class="pb-orb pb-orb1" style="opacity:0.1"></div>
-      <div class="pb-content" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem">
-        <div><div class="slabel">Dashboard</div><h2 style="font-size:1.4rem;font-weight:700">Profil <span class="grad-text">Saya</span></h2></div>
-        <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
-          <button class="btn btn-g btn-sm" onclick="openEditProfile()">✏️ Edit</button>
-          <button class="btn btn-red btn-sm" onclick="doLogout()">Keluar</button>
-        </div>
+    <div class="prof-inner" style="padding:0">
+    <div class="page-header" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <div class="slabel" style="margin-bottom:0.4rem">Dashboard</div>
+        <h2 style="font-size:2.2rem;font-weight:700;letter-spacing:-1px;margin:0">Profil <span class="grad-text">Saya</span></h2>
+      </div>
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+        <button class="btn btn-g btn-sm" onclick="openEditProfile()">✏️ Edit</button>
+        <button class="btn btn-red btn-sm" onclick="doLogout()">Keluar</button>
       </div>
     </div>
     <div class="gc prof-header">
@@ -1714,8 +2063,7 @@ footer{
 ══════════════════════════════ -->
 <div class="screen" id="s-cbt">
   <div class="page">
-    <div class="container">
-<div class="page-hero">
+    <div class="page-hero">
       <div class="ph-bg"></div>
       <div class="ph-grid"></div>
       <div class="ph-diag"></div>
@@ -1734,6 +2082,7 @@ footer{
           </div>
       </div>
     </div>
+    <div class="container">
 
       <!-- FITUR TRY OUT -->
       <div id="to-section-anchor" style="margin-bottom:3rem">
@@ -1793,8 +2142,94 @@ footer{
         </div>
       </div>
 
+
+    <div style="height:2rem"></div>
+    </div>
   
-    <footer style="margin-top:auto">
+      <!-- TESTIMONI SLIDER -->
+      <div class="container" style="margin-top:4rem;padding-top:3rem;padding-bottom:4.5rem;border-top:1px solid var(--border)">
+        <div class="slabel" style="text-align:center">Kata Mereka</div>
+        <div class="stitle" style="text-align:center;margin-bottom:2rem">Cerita <span class="grad-text">Nyata</span></div>
+        <div class="testi-slider-wrap" id="tslider-cbt">
+          <div class="testi-track" id="ttrack-cbt">
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Sejak gabung ONECAMP nilai try out saya naik drastis dari 45 ke 87! Tutor di sini beda banget — mereka tahu trik yang nggak ada di buku mana pun.</p>
+              <div class="testi-prestasi">🥉 Perunggu OSN Matematika 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#9775fa,#3b5bdb)">AZ</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Alya Zahra</div>
+                  <div class="testi-school">📍 SMAN 3 Jakarta</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Komunitas ONECAMP luar biasa. Bisa tanya 24 jam, selalu ada yang bantu. Seperti punya satu angkatan medalis yang siap ngulik soal bareng.</p>
+              <div class="testi-prestasi">🥇 Emas OSN Fisika 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#cc5de8,#9775fa)">MR</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Muhammad Rafi</div>
+                  <div class="testi-school">📍 SMAN 8 Bandung</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Modulnya detail banget dan try out-nya mirip banget sama soal asli OSN. Nggak nyesel — ini yang bawa saya ke podium.</p>
+              <div class="testi-prestasi">🥈 Perak OSN Biologi 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#74c0fc,#3b5bdb)">DS</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Dwi Sekar</div>
+                  <div class="testi-school">📍 SMAN 1 Surabaya</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="4 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-off">★</span></div>
+              <p class="testi-text">Pelatihan ONECAMP beda level. Tutor medalis beneran ngerti cara berpikir soal olimpiade, bukan cuma hafalan rumus.</p>
+              <div class="testi-prestasi">🥈 Perak OSN Kimia 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#ffd700,#f59e0b)">RN</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Rizal Nanda</div>
+                  <div class="testi-school">📍 SMAN 2 Yogyakarta</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Komunitas gratis tapi kualitasnya premium. Ada quiz mingguan, bahas soal bareng, dan admin yang aktif banget ngejawab pertanyaan.</p>
+              <div class="testi-prestasi">🌟 Anggota Komunitas OSN</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#34d399,#059669)">SP</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Sari Pratiwi</div>
+                  <div class="testi-school">📍 SMAN 1 Semarang</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="4 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-off">★</span></div>
+              <p class="testi-text">Try out ONECAMP levelnya pas banget. Setelah rutin ikut 3 seri, analisis kelemahan saya jadi jauh lebih tajam dan skor naik 30 poin.</p>
+              <div class="testi-prestasi">📝 Peserta TO Seri 1–3</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#f87171,#dc2626)">BK</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Bagas Kurnia</div>
+                  <div class="testi-school">📍 SMAN 5 Medan</div>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+        <div class="testi-dots" id="tdots-cbt"></div>
+      </div>
+    <!-- FOOTER -->
+    <footer>
       <div class="footer-logo">ONECAMP</div>
       <div class="footer-socials">
         <a class="social-btn" href="https://instagram.com/ambiscamp" target="_blank" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1805,9 +2240,6 @@ footer{
       </div>
       <div class="footer-copy">© 2025 ONECAMP. Hak Cipta Dilindungi.</div>
     </footer>
-
-    <div style="height:2rem"></div>
-    </div>
   </div>
 </div>
 
@@ -1818,12 +2250,12 @@ footer{
   <div class="page">
   <div class="container">
   <div class="dft-inner" style="padding:0">
-    <div class="page-banner slide-up" style="margin-bottom:1.5rem;text-align:left;padding:1.5rem 2rem">
-      <div class="pb-grid"></div><div class="pb-orb pb-orb1" style="opacity:0.1"></div>
-      <div class="pb-content" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem">
-        <div><div class="slabel">Pendaftaran</div><h2 style="font-size:1.3rem;font-weight:700">Daftar <span class="grad-text">Try Out</span></h2></div>
-        <button class="btn btn-o btn-sm" onclick="goBack()">← Kembali</button>
+    <div class="page-header" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <div class="slabel" style="margin-bottom:0.4rem">Pendaftaran</div>
+        <h2 style="font-size:2.2rem;font-weight:700;letter-spacing:-1px;margin:0">Daftar <span class="grad-text">Try Out</span></h2>
       </div>
+      <button class="btn btn-o btn-sm" onclick="goBack()">← Kembali</button>
     </div>
     <div class="gc dft-to-bar"><div class="dft-to-ico" id="dft-ico">📝</div><div><div style="font-size:0.95rem;font-weight:700" id="dft-to-name">–</div><div style="font-size:0.75rem;color:var(--text2)" id="dft-to-date">–</div></div></div>
     <div class="stepbar"><div class="sd act" id="ds1"></div><div class="sd" id="ds2"></div><div class="sd" id="ds3"></div></div>
@@ -1877,12 +2309,12 @@ footer{
   <div class="page">
   <div class="container">
   <div class="tod-inner" style="padding:0">
-    <div class="page-banner slide-up" style="margin-bottom:1.5rem;text-align:left;padding:1.5rem 2rem">
-      <div class="pb-grid"></div><div class="pb-orb pb-orb1" style="opacity:0.1"></div>
-      <div class="pb-content" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem">
-        <div><div class="slabel">Detail Seri</div><h2 style="font-size:1.3rem;font-weight:700" id="tod-label">Detail <span class="grad-text">Try Out</span></h2></div>
-        <button class="btn btn-o btn-sm" onclick="goPage('cbt')">← Try Out</button>
+    <div class="page-header" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <div class="slabel" style="margin-bottom:0.4rem">Detail Seri</div>
+        <h2 style="font-size:2.2rem;font-weight:700;letter-spacing:-1px;margin:0" id="tod-label">Detail <span class="grad-text">Try Out</span></h2>
       </div>
+      <button class="btn btn-o btn-sm" onclick="goPage('cbt')">← Try Out</button>
     </div>
     <div class="gc tod-hero"><div class="tod-ico" id="tod-ico">📝</div><div class="tod-title" id="tod-title">–</div><div class="tod-date" id="tod-date">–</div><div class="tod-tags" id="tod-tags"></div></div>
     <div class="sec-lbl" style="margin-top:1.3rem">Bidang yang Kamu Ikuti</div>
@@ -1955,21 +2387,13 @@ footer{
 <div class="screen" id="s-leaderboard">
   <div class="page">
   <div class="lb-inner fu">
-<div class="page-hero">
-      <div class="ph-bg"></div>
-      <div class="ph-grid"></div>
-      <div class="ph-diag"></div>
-      <div class="ph-orb ph-o1"></div>
-      <div class="ph-orb ph-o2"></div>
-      <div class="ph-orb ph-o3"></div>
-      <div class="ph-rings"><div class="ph-ring ph-r1"></div><div class="ph-ring ph-r2"></div><div class="ph-ring ph-r3"></div></div>
-      <div class="ph-pts" id="ph-pts-kompetisi-nasional"></div>
-      <div class="ph-content">
-        <div class="anim-pill"><div class="anim-pulse"></div>Kompetisi Nasional</div>
-        <div class="stitle" style="font-size:clamp(2rem,5vw,3rem);margin-bottom:0.6rem">Ranking <span class="grad-text">Terbaik</span></div>
-        <p style="font-size:0.95rem;color:var(--text2);max-width:520px;margin:0 auto 1.8rem;line-height:1.75">Posisi kamu di antara ribuan pejuang OSN seluruh Indonesia</p>
-        
+    <div class="page-header" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <div class="slabel" style="margin-bottom:0.4rem">Kompetisi Nasional</div>
+        <h2 style="font-size:2.2rem;font-weight:700;letter-spacing:-1px;margin:0">Ranking <span class="grad-text">Terbaik</span></h2>
+        <p style="font-size:0.85rem;color:var(--text2);margin-top:0.5rem;line-height:1.6">Posisi kamu di antara ribuan pejuang OSN seluruh Indonesia</p>
       </div>
+      <button class="btn btn-o btn-sm" onclick="goBack()">← Kembali</button>
     </div>
     <div class="lb-series-tabs" id="lb-series-tabs"></div>
     <div class="lb-controls" id="lb-bidang-ctrl">
@@ -1978,7 +2402,12 @@ footer{
     <div class="podium" id="lb-podium"></div>
     <div style="overflow-x:auto;width:100%"><table class="lb-tbl" style="min-width:500px"><thead><tr><th>#</th><th>Peserta</th><th>Bidang/Seri</th><th>Skor</th><th>Durasi</th></tr></thead><tbody id="lb-body"></tbody></table></div>
 
-    <footer style="margin-top:auto">
+
+    <div style="height:2rem"></div>
+  </div>
+  
+    <!-- FOOTER -->
+    <footer>
       <div class="footer-logo">ONECAMP</div>
       <div class="footer-socials">
         <a class="social-btn" href="https://instagram.com/ambiscamp" target="_blank" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1989,9 +2418,6 @@ footer{
       </div>
       <div class="footer-copy">© 2025 ONECAMP. Hak Cipta Dilindungi.</div>
     </footer>
-
-    <div style="height:2rem"></div>
-  </div>
   </div>
 </div>
 
@@ -2158,14 +2584,17 @@ function goPage(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(sId).classList.add('active');
   S.screen=sId;
+  // Hide global navbar while on exam screen so countdown isn't covered
+  document.body.classList.toggle('exam-active', sId === 's-exam');
   window.scrollTo(0,0);
-  setTimeout(()=>{initPageAnims();spawnHeroParticles();},50);
+  setTimeout(()=>{initPageAnims();spawnHeroParticles();spawnPageAmbient(sId);},50);
   // Render on navigate
-  if(id==='cbt'){renderHomeTO();renderPembahasanGrid();}
+  if(id==='cbt'){renderHomeTO();renderPembahasanGrid();setTimeout(()=>initSlider('cbt'),100);}
   if(id==='leaderboard') {buildLbDropdown();buildLbSeriesTabs();}
   if(id==='pelatihan'){renderKelas();renderTutorFilter();filterTutors('Semua');renderMasterPackGrid();}
-  if(id==='komunitas'){startKomCountdown();renderKomBidang(false);}
-  if(id==='pelatihan'){renderKelas();renderTutorFilter();filterTutors('Semua');renderMasterPackGrid();renderBlindBidangBtns();updateBlindHint();loadBlindCooldown();}
+  if(id==='komunitas'){startKomCountdown();renderKomBidang(false);setTimeout(()=>initSlider('kom'),100);}
+  if(id==='partnership'){setTimeout(animateCounters,300);}
+  if(id==='pelatihan'){renderKelas();renderTutorFilter();filterTutors('Semua');renderMasterPackGrid();renderBlindBidangBtns();buildBlindBidangDropdown();updateBlindHint();loadBlindCooldown();setTimeout(()=>initSlider('pel'),100);}
   if(id==='profile') {renderProfile();goPage('profile'); return;}
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
   syncNav();
@@ -2328,7 +2757,7 @@ function renderKelas(){
       <div style="font-size:0.8rem;color:var(--text2);line-height:1.6;margin:0.6rem 0">${k.desc}</div>
       <div class="kelas-tags">${tags}</div>
       <div class="kelas-price">Rp${k.harga.ind.toLocaleString('id')} <small>/ individu</small></div>
-      <button class="btn btn-g btn-sm btn-full" onclick="openDaftarPel('${k.id}')">Daftar Kelas →</button>`;
+      <button class="btn btn-g btn-sm btn-full" onclick="openDaftarPel('${k.id}')">Register</button>`;
     grid.appendChild(c);
   });
 }
@@ -2397,7 +2826,17 @@ function spawnParticlesBurst(){
   setTimeout(()=>burst.innerHTML='',1200);
 }
 function openBox(){
-  if(blindState.hasOpened)return;
+  // If a tutor has already been revealed and the user just closed the card,
+  // re-show the same card without re-running the gift-box animation.
+  if(blindState.hasOpened){
+    if(blindState.currentTutor){
+      const ra = document.getElementById('resultArea');
+      if (!ra.classList.contains('visible')) {
+        revealBlindTutor(blindState.currentTutor);
+      }
+    }
+    return;
+  }
   const btn=document.getElementById('openBtn');btn.disabled=true;btn.textContent='✨ Membuka...';
   const box=document.getElementById('mysteryBox');
   box.classList.add('shaking');
@@ -2407,7 +2846,12 @@ function openBox(){
     const be=document.getElementById('boxEmoji');let i=0;
     const si=setInterval(()=>{be.textContent=emojis[i%emojis.length];i++;},90);
     setTimeout(()=>{clearInterval(si);box.classList.add('open');spawnParticlesBurst();
-      setTimeout(()=>{blindState.currentTutor=getRandTutor();blindState.hasOpened=true;revealBlindTutor(blindState.currentTutor);},500);},900);
+      setTimeout(()=>{
+        const nt = (typeof getRandTutorByBidang === 'function')
+          ? getRandTutorByBidang()
+          : getRandTutor();
+        blindState.currentTutor=nt;blindState.hasOpened=true;revealBlindTutor(nt);
+      },500);},900);
   },650);
 }
 function revealBlindTutor(t){
@@ -2417,8 +2861,10 @@ function revealBlindTutor(t){
   document.getElementById('resultTags').innerHTML=t.tags.map(x=>`<span class="res-tag">${x}</span>`).join('');
   document.getElementById('shuffleLeft').textContent=blindState.shufflesLeft;
   document.getElementById('reshuffleBtn').disabled=blindState.shufflesLeft<=0;
-  document.getElementById('blind-box-wrap').style.display='none';
-  const ra=document.getElementById('resultArea');ra.style.display='block';requestAnimationFrame(()=>requestAnimationFrame(()=>ra.classList.add('visible')));
+  // Card overlays the box visually — keep box-wrap visible underneath.
+  // Synchronously add the .visible class; CSS transition handles the fade-in.
+  const ra=document.getElementById('resultArea');
+  ra.classList.add('visible');
 }
 function reshuffle(){
   if(blindState.shufflesLeft<=0||blindState.isShuffling)return;
@@ -2582,9 +3028,13 @@ function startExamFlow(toId,bidangId){
   S.exam={to,bidang:b,questions:genQ(),answers:{},flags:new Set(),cur:0,timerSec:7200,timerInt:null};
   document.getElementById('ex-title').textContent=`TO ${b.name} ${b.level} · Seri ${to.seri}`;
   document.getElementById('ex-sub').textContent=`${b.level} · 40 Soal`;
-  renderNavGrid();renderQ();startTimer();goPage('exam');setTimeout(()=>enterFullscreen(),400);
+  renderNavGrid();renderQ();startTimer();
+  // Request fullscreen FIRST while still in the user-gesture context, then navigate.
+  // Fullscreen requests from setTimeout get rejected by the browser.
+  enterFullscreen();
+  goPage('exam');
 }
-function startTimer(){if(S.exam.timerInt)clearInterval(S.exam.timerInt);updTimer();S.exam.timerInt=setInterval(()=>{S.exam.timerSec--;updTimer();if(S.exam.timerSec<=0){clearInterval(S.exam.timerInt);document.getElementById('mo-timeup').classList.add('open');}},1000);}
+function startTimer(){if(S.exam.timerInt)clearInterval(S.exam.timerInt);updTimer();S.exam.timerInt=setInterval(()=>{S.exam.timerSec--;updTimer();if(S.exam.timerSec<=0){clearInterval(S.exam.timerInt);showToast('⏰ Waktu habis! Jawaban dikumpulkan otomatis');submitExam();}},1000);}
 function updTimer(){
   const h=Math.floor(S.exam.timerSec/3600),m=Math.floor((S.exam.timerSec%3600)/60),s=S.exam.timerSec%60;
   const txt=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
@@ -2632,6 +3082,16 @@ function confirmSubmit(){
 }
 function closeMo(id){document.getElementById(id).classList.remove('open');}
 function submitExam(){
+  // Mark that we're submitting so handleFsChange skips the warning during natural exit
+  S._submitting = true;
+  // Exit fullscreen so review/result pages don't stay in fullscreen mode
+  if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement) {
+    if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+  }
+  clearInterval(fsWarningInt);
+  const fsWarn = document.getElementById('fs-warning'); if(fsWarn) fsWarn.classList.remove('show');
   clearInterval(S.exam.timerInt);closeMo('mo-submit');closeMo('mo-timeup');
   let cor=0;S.exam.questions.forEach((q,i)=>{const a=S.exam.answers[i];
     if(q.type==='pg'&&a===q.ans)cor++;else if(q.type==='pgm'&&Array.isArray(a)&&[...a].sort().join()===[...q.correct].sort().join())cor++;
@@ -2663,6 +3123,8 @@ function submitExam(){
     <button class="btn btn-g btn-sm" onclick="goPage('leaderboard')">🏆 Ranking</button>
     <button class="btn btn-cert btn-sm" onclick="downloadCert()">🎓 Sertifikat</button>`;
   renderHomeTO();goPage('result');
+  // Clear submitting flag after a brief delay to let fullscreenchange settle
+  setTimeout(() => { S._submitting = false; }, 800);
 }
 
 // ═══════════ MOBILE EXAM ═══════════
@@ -2690,20 +3152,33 @@ function buildLbDropdown(){
 function buildLbSeriesTabs(){
   const c=document.getElementById('lb-series-tabs');if(!c)return;c.innerHTML='';
   const tot=document.createElement('button');tot.className='lb-stab total'+(S.lbMode==='total'?' on':'');
-  tot.textContent='🏆 Total Akumulasi';tot.onclick=()=>{S.lbMode='total';buildLbSeriesTabs();renderLbTotal();document.getElementById('lb-bidang-ctrl').style.display='none';};c.appendChild(tot);
+  tot.textContent='🏆 Total Akumulasi';tot.onclick=()=>{S.lbMode='total';buildLbSeriesTabs();document.getElementById('lb-bidang-ctrl').style.display='flex';renderLbTotal(S.lbBidang||'Matematika SMA');};c.appendChild(tot);
   TO_SERIES.forEach(to=>{const t=document.createElement('button');t.className='lb-stab'+(S.lbSeri===to.id&&S.lbMode==='seri'?' on':'');
     t.textContent=`${to.emoji} Seri ${to.seri}`;t.onclick=()=>{S.lbSeri=to.id;S.lbMode='seri';buildLbSeriesTabs();document.getElementById('lb-bidang-ctrl').style.display='flex';renderLb(S.lbBidang);};c.appendChild(t);});
 }
 function openLbForTo(toId){S.lbSeri=toId;S.lbMode='seri';goPage('leaderboard');setTimeout(()=>{buildLbDropdown();buildLbSeriesTabs();document.getElementById('lb-bidang-ctrl').style.display='flex';renderLb(S.lbBidang);},100);}
 function renderLb(key){S.lbBidang=key;if(S.lbMode==='total'){renderLbTotal(key);return;}const data=LB[key]||LB['Matematika SMA'];renderLbData(data,key,key.split(' ').pop());}
 function renderLbTotal(bidangFilter){
+  // Use bidang as a seed so each bidang shows different data — makes the filter meaningful
+  const bidang = bidangFilter || 'Matematika SMA';
+  const seed = bidang.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+  const rng = (i)=>{const x=Math.sin(seed+i*9.31)*10000;return x-Math.floor(x);};
   const ns=['Alya Z.','Rafi M.','Dwi S.','Bintang P.','Sari N.','Kevin A.','Nadia F.','Riko B.','Hana L.','Dimas K.','Putri A.','Fajar N.','Cinta D.','Rafli H.','Yunita S.'];
-  const sc=['SMAN 3 Jakarta','SMAN 1 Surabaya','SMAN 8 Bandung'];
+  const sc=['SMAN 3 Jakarta','SMAN 1 Surabaya','SMAN 8 Bandung','SMAN 1 Yogyakarta','SMAN 5 Medan','SMAN 1 Semarang'];
   const ini=['AZ','RM','DS','BP','SN','KA','NF','RB','HL','DK','PA','FN','CD','RH','YS'];
-  const data=ns.map((n,i)=>({rank:i+1,name:n,init:ini[i],school:sc[i%sc.length],score:Math.max(100,1200-i*55+Math.floor(Math.random()*35)),time:'6 seri'}));
-  if(S.user&&S.user.poin){const tp=getTotalPoin();data[7]={rank:8,name:S.user.nama,init:(S.user.nick||S.user.nama)[0].toUpperCase(),school:S.user.sekolah||'–',score:tp,time:'aktif'};}  
-  const lbl=bidangFilter?bidangFilter.split(' ')[0]+' Total':'Total';
-  renderLbData(data,'Total Akumulasi',lbl||'Total');
+  // Shuffle ranking order based on bidang seed so each bidang has a different leaderboard
+  const order=[...Array(ns.length).keys()].sort((a,b)=>rng(a)-rng(b));
+  const data=order.map((idx,i)=>({
+    rank:i+1,
+    name:ns[idx],
+    init:ini[idx],
+    school:sc[(idx+Math.floor(seed/10))%sc.length],
+    score:Math.max(150,1400-i*60+Math.floor(rng(i+50)*45)),
+    time:'6 seri'
+  }));
+  if(S.user&&S.user.poin){const tp=getTotalPoin();data[7]={rank:8,name:S.user.nama,init:(S.user.nick||S.user.nama)[0].toUpperCase(),school:S.user.sekolah||'–',score:tp,time:'aktif'};}
+  const lbl=`${bidang.split(' ')[0]} Total`;
+  renderLbData(data,'Total Akumulasi · '+bidang,lbl);
 }
 function renderLbData(data,key,lbl){
   const[r1,r2,r3]=[data[0],data[1],data[2]];
@@ -3140,6 +3615,8 @@ function returnFullscreen() {
 
 function handleFsChange() {
   const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement);
+  // Skip the warning during natural submit transitions and when we're no longer on the exam screen
+  if (S._submitting) return;
   const isExam = S.screen === 's-exam';
   if (!isExam) return;
   if (!isFullscreen) {
@@ -3175,42 +3652,52 @@ function reshuffleWithReset() {
   blindState.isShuffling = true;
   blindState.shufflesLeft--;
 
-  // Hide result, show box again
+  // Hide result so the box underneath becomes visible again
   const ra = document.getElementById('resultArea');
   ra.classList.remove('visible');
+  // Reset box state
+  const box = document.getElementById('mysteryBox');
+  box.classList.remove('open', 'shaking');
+  document.getElementById('boxEmoji').textContent = '🎁';
+  // Replay shake → cycle emoji → open → reveal new card
   setTimeout(() => {
-    ra.style.display = 'none';
-    const bw = document.getElementById('blind-box-wrap');
-    bw.style.display = 'block';
-    // Reset box
-    const box = document.getElementById('mysteryBox');
-    box.classList.remove('open', 'shaking');
-    document.getElementById('boxEmoji').textContent = '🎁';
-    // Shake then open fresh
+    box.classList.add('shaking');
     setTimeout(() => {
-      box.classList.add('shaking');
+      box.classList.remove('shaking');
+      const emojis = ['🧮','⚡','🧪','💻','🧬','🔭'];
+      const be = document.getElementById('boxEmoji');
+      let i = 0;
+      const si = setInterval(() => { be.textContent = emojis[i % emojis.length]; i++; }, 90);
       setTimeout(() => {
-        box.classList.remove('shaking');
-        const emojis = ['🧮','⚡','🧪','💻','🧬','🔭'];
-        const be = document.getElementById('boxEmoji');
-        let i = 0;
-        const si = setInterval(() => { be.textContent = emojis[i % emojis.length]; i++; }, 90);
+        clearInterval(si);
+        box.classList.add('open');
+        spawnParticlesBurst();
         setTimeout(() => {
-          clearInterval(si);
-          box.classList.add('open');
-          spawnParticlesBurst();
-          setTimeout(() => {
-            const nt = getRandTutor(blindState.currentTutor);
-            blindState.currentTutor = nt;
-            blindState.hasOpened = true;
-            bw.style.display = 'none';
-            revealBlindTutor(nt);
-            blindState.isShuffling = false;
-          }, 500);
-        }, 900);
-      }, 650);
-    }, 200);
-  }, 300);
+          const nt = (typeof getRandTutorByBidang === 'function')
+            ? getRandTutorByBidang(blindState.currentTutor)
+            : getRandTutor(blindState.currentTutor);
+          blindState.currentTutor = nt;
+          blindState.hasOpened = true;
+          revealBlindTutor(nt);
+          blindState.isShuffling = false;
+        }, 500);
+      }, 900);
+    }, 650);
+  }, 250);
+}
+
+// Close (X) the result card without re-running the gift-box animation.
+// Box state stays as-is (still "open"); user can choose to reshuffle for a new tutor.
+function closeBlindResult() {
+  const ra = document.getElementById('resultArea');
+  ra.classList.remove('visible');
+  // Keep blindState.hasOpened true so clicking the box won't re-trigger; user uses reshuffle to randomize.
+  // But we DO re-enable the open button so the user has a clear path back if they want to.
+  const openBtn = document.getElementById('openBtn');
+  if (openBtn) {
+    openBtn.disabled = false;
+    openBtn.textContent = '🎲 Buka Lagi';
+  }
 }
 
 // ═══════════ CLAIM TUTOR FORM ═══════════
@@ -3391,33 +3878,67 @@ const KELAS_DATES = {
   'final-push':    {start:'15 Apr 2025', end:'9 Jun 2025'},
 };
 
-const KELAS_KURIKULUM = {
-  'beginner': ['Pengenalan Sistem OSN & Tipe Soal','Strategi Membaca & Memahami Soal','Konsep Dasar Matematika: Aritmatika & Aljabar','Konsep Dasar Fisika: Mekanika & Kinematika','Konsep Dasar Kimia: Stoikiometri','Dasar Biologi: Sel & Jaringan','Latihan Soal Level 1','Konsep Dasar Informatika: Algoritma Dasar','Pengenalan Soal B/S & Isian Singkat','Teknik Eliminasi & Manajemen Waktu','Simulasi Mini Try Out 1','Review & Pembahasan Simulasi 1','Konsep Dasar Geografi & Kebumian','Strategi Menghadapi Soal Essay','Simulasi Mini Try Out 2','Review Final & Tips OSN'],
-  'intermediate': ['Review Konsep Dasar & Identifikasi Gap','Strategi Soal HOTS Level Menengah','Matematika: Kombinatorik & Peluang','Fisika: Termodinamika & Optik','Kimia: Organik & Larutan Buffer','Biologi: Genetika & Hereditas','Soal PG Majemuk: Teknik & Strategi','Informatika: Sorting, Searching, Rekursi','Astronomi: Mekanika Langit Dasar','Ekonomi: Teori Pasar & Keseimbangan','Simulasi Try Out Level Menengah 1','Review & Deep Dive Pembahasan','Kebumian: Batuan & Tektonik','Geografi: Dinamika Penduduk & SIG','Simulasi Try Out Level Menengah 2','Review Final & Strategi Peningkatan Skor'],
-  'advanced': ['Soal Level Nasional: Pola & Pendekatan','Matematika: Number Theory & Geometri Lanjut','Fisika: Elektromagnetik & Relativitas','Kimia: Analitik Kuantitatif & Spektroskopi','Biologi: Evolusi & Ekologi Lanjut','Informatika: DP, Graph, Shortest Path','Astronomi: Astrofisika & Kosmologi','Simulasi Nasional 1 (40 soal, 2 jam)','Review & Analisis Mendalam Sesi 1','Soal Olimpiade Internasional: Adaptasi','Teknik Problem Solving Level Expert','Manajemen Stres & Strategi Ujian','Simulasi Nasional 2','Review & Pembahasan Mendalam Sesi 2','Mock OSN Final Nasional','Sesi Q&A & Persiapan Mental Juara'],
-  'question-drill': ['Speed Drill: 20 soal dalam 30 menit','Pola Soal OSN 3 Tahun Terakhir','Drill PG: 50 soal tanpa batas waktu','Drill Isian Singkat & B/S','Drill Essay: Teknik Menjawab Cepat','Analisis Kesalahan Umum','Drill Level Easy (100%)','Drill Level Medium (80% target)','Drill Level Hard (60% target)','Speed Round: 10 soal, 15 menit','Error Analysis & Pattern Recognition','Drill Campuran Semua Tipe Soal','Simulasi Drill Penuh (2 jam)','Review Kesalahan Terbanyak','Drill Final Pre-OSN','Wrap Up & Personal Error Log'],
-  'final-push': ['Assessment Awal: Identifikasi Kelemahan','Target Setting & Strategi Personal','Deep Review Topik Kelemahan 1','Deep Review Topik Kelemahan 2','Mock Exam 1 (Full simulasi OSN)','Analisis Mock Exam 1','Teknik Manajemen Waktu di Ujian Nyata','Strategi Menghadapi Soal Sulit','Mock Exam 2 (Full simulasi OSN)','Analisis Mock Exam 2 & Improvement','Penguatan Topik High-yield','Mental Preparation & Anti-blank Mind','Simulasi Kondisi Ujian Nyata','Review Last Minute Tips','Sesi Tanya Jawab Bebas','Final Motivation & Good Luck Session'],
+// 16 materi per bidang OSN — daftar topik yang akan dibahas dalam 16 sesi pelatihan
+const BIDANG_KURIKULUM = {
+  'mtk-sma': ['Aljabar: Sistem Persamaan & Pertidaksamaan','Teori Bilangan: FPB, KPK, Modular','Geometri Bidang: Lingkaran & Segitiga','Geometri Ruang: Bangun & Vektor','Kombinatorik: Permutasi & Kombinasi','Peluang & Ekspektasi','Fungsi & Persamaan Fungsional','Trigonometri Lanjut','Polinomial & Faktorisasi','Induksi Matematika & Pembuktian','Barisan & Deret','Limit, Turunan, Integral Dasar','Pertaksamaan Klasik (AM-GM, Cauchy)','Geometri Analitik','Simulasi Olimpiade Tipe A','Simulasi Olimpiade Tipe B & Pembahasan'],
+  'fis-sma': ['Mekanika: Kinematika 1D & 2D','Mekanika: Hukum Newton & Gaya','Dinamika Rotasi & Momen Inersia','Energi, Usaha & Daya','Momentum & Tumbukan','Fluida Statis & Dinamis','Termodinamika: Hukum I & II','Gelombang Mekanik & Bunyi','Optik Geometris & Fisis','Listrik Statis & Hukum Coulomb','Listrik Dinamis & Rangkaian','Magnetik & Induksi Elektromagnetik','Fisika Modern: Relativitas Khusus','Fisika Kuantum: Foton & de Broglie','Simulasi Soal OSN Fisika','Pembahasan & Strategi Soal Eksperimen'],
+  'kim-sma': ['Stoikiometri & Konsep Mol','Struktur Atom & Tabel Periodik','Ikatan Kimia & Geometri Molekul','Termokimia & Hukum Hess','Kinetika Kimia & Orde Reaksi','Kesetimbangan Kimia (Kc, Kp)','Asam-Basa & pH','Larutan Buffer & Hidrolisis','Kelarutan & Hasil Kali Kelarutan','Redoks & Sel Elektrokimia','Kimia Organik: Tatanama & Isomer','Reaksi Organik: SN, E, Adisi','Kimia Anorganik: Kompleks & Koordinasi','Spektroskopi Dasar (UV-Vis, IR)','Simulasi Olimpiade Kimia','Pembahasan Soal Eksperimen Lab'],
+  'bio-sma': ['Sel: Struktur, Organel & Membran','Metabolisme: Respirasi & Fotosintesis','Genetika Mendel & Non-Mendel','Genetika Molekuler: DNA, RNA, Protein','Bioteknologi & Rekayasa Genetika','Evolusi & Seleksi Alam','Ekologi: Populasi, Komunitas, Ekosistem','Anatomi Tumbuhan & Fisiologi','Anatomi Hewan: Sistem Organ','Fisiologi Manusia: Sistem Saraf','Fisiologi Manusia: Sistem Endokrin','Fisiologi Manusia: Sistem Imun','Mikrobiologi & Virologi','Taksonomi & Klasifikasi Makhluk Hidup','Simulasi Olimpiade Biologi','Pembahasan Soal Praktikum'],
+  'ast-sma': ['Mekanika Langit & Hukum Kepler','Sistem Tata Surya','Bola Langit & Sistem Koordinat','Astronomi Posisional & Waktu','Karakteristik Bintang & Diagram H-R','Evolusi Bintang','Galaksi & Struktur Galaksi','Kosmologi: Big Bang & Ekspansi Alam Semesta','Spektroskopi Astronomi','Fotometri & Magnitudo','Astrofisika Dasar: Radiasi','Lubang Hitam & Bintang Neutron','Eksoplanet & Pencariannya','Observasi & Instrumen Astronomi','Simulasi Olimpiade Astronomi','Pembahasan Soal Analisis Data'],
+  'keb-sma': ['Geologi: Mineral & Batuan','Tektonik Lempeng & Gempa Bumi','Geomorfologi & Bentang Alam','Vulkanologi & Aktivitas Gunung Api','Stratigrafi & Sejarah Bumi','Atmosfer & Meteorologi','Klimatologi & Iklim Global','Oseanografi: Arus & Gelombang','Hidrologi: Siklus Air','Bencana Alam & Mitigasi','Sumber Daya Alam & Energi','Lingkungan & Perubahan Iklim','Astronomi Kebumian: Tata Surya','Geofisika Dasar','Simulasi Olimpiade Kebumian','Pembahasan Soal Lapangan'],
+  'inf-sma': ['Algoritma Dasar & Kompleksitas','Struktur Data: Array, Stack, Queue','Linked List & Tree','Sorting: Quick, Merge, Heap Sort','Searching: Binary Search & Variasi','Rekursi & Backtracking','Dynamic Programming Dasar','Dynamic Programming Lanjut','Graph: BFS, DFS','Shortest Path: Dijkstra, Bellman-Ford','Minimum Spanning Tree (Kruskal, Prim)','String Algorithms: KMP, Trie','Greedy Algorithms','Number Theory dalam Pemrograman','Simulasi OSN Informatika','Pembahasan & Optimasi Solusi'],
+  'eko-sma': ['Konsep Dasar Ekonomi & Kelangkaan','Permintaan, Penawaran & Keseimbangan Pasar','Elastisitas & Aplikasinya','Teori Produksi & Biaya','Struktur Pasar: Persaingan & Monopoli','Pendapatan Nasional (PDB, PNB)','Inflasi, Pengangguran & Indeks Harga','Kebijakan Fiskal & Moneter','Sistem Keuangan & Perbankan','Perdagangan Internasional & Kurs','Neraca Pembayaran','Pertumbuhan & Pembangunan Ekonomi','Ekonomi Mikro Lanjut: Game Theory','Ekonometrika Dasar','Simulasi Olimpiade Ekonomi','Pembahasan Studi Kasus'],
+  'geo-sma': ['Konsep Geografi & Pendekatan','Geografi Fisik: Litosfer & Pedosfer','Hidrosfer & Daerah Aliran Sungai','Atmosfer & Iklim','Biosfer & Persebaran Flora-Fauna','Geografi Penduduk & Migrasi','Geografi Desa-Kota','Geografi Industri & Lokasi','Geografi Pariwisata','Sistem Informasi Geografis (SIG)','Penginderaan Jauh & Pemetaan','Geografi Regional Indonesia','Geografi Negara Berkembang','Pembangunan Berkelanjutan','Simulasi Olimpiade Geografi','Pembahasan Soal Analisis Peta'],
+  'mtk-smp': ['Bilangan Bulat & Operasinya','Pecahan, Desimal & Persentase','Aljabar Dasar: Persamaan Linear','Sistem Persamaan Linear Dua Variabel','Pertidaksamaan & Aplikasi','Perbandingan & Skala','Geometri Bidang: Segitiga & Segiempat','Lingkaran & Sudut','Bangun Ruang: Kubus, Balok, Prisma','Kongruensi & Kesebangunan','Statistika Dasar & Ukuran Pemusatan','Peluang Sederhana','Pola Bilangan & Barisan','Teori Bilangan: Faktor & Kelipatan','Simulasi Olimpiade Matematika SMP','Pembahasan Strategi Soal'],
+  'ipa-smp': ['Pengukuran & Besaran','Gerak & Gaya','Energi & Usaha','Suhu, Kalor & Pemuaian','Getaran, Gelombang & Bunyi','Cahaya & Optik','Listrik Statis & Dinamis','Magnet & Elektromagnetik','Klasifikasi Makhluk Hidup','Sistem Organ Manusia','Ekosistem & Lingkungan','Pewarisan Sifat & Genetika Dasar','Zat & Wujudnya','Reaksi Kimia Sederhana','Simulasi Olimpiade IPA SMP','Pembahasan Soal Praktikum'],
+  'ips-smp': ['Manusia, Tempat & Lingkungan','Interaksi Sosial & Lembaga Sosial','Aktivitas Manusia Memenuhi Kebutuhan','Sejarah Indonesia: Masa Praaksara','Sejarah Indonesia: Hindu-Buddha & Islam','Kolonialisme & Perlawanan','Pergerakan Nasional & Proklamasi','Indonesia Pasca Kemerdekaan','Geografi Indonesia: Letak & Potensi','Ekonomi: Permintaan-Penawaran','Pelaku Ekonomi & Pasar','ASEAN & Kerjasama Internasional','Globalisasi & Dampaknya','Penyimpangan Sosial','Simulasi Olimpiade IPS SMP','Pembahasan Studi Kasus'],
 };
 
 function openKurikulum(kelasId) {
   const kelas = KELAS.find(k=>k.id===kelasId);
   if(!kelas) return;
-  const kurikulum = KELAS_KURIKULUM[kelasId] || [];
-  document.getElementById('kur-title').textContent = `📚 Kurikulum — ${kelas.name}`;
+  // Step 1: Show bidang picker first
+  document.getElementById('kur-title').textContent = `Kurikulum — ${kelas.name}`;
   const content = document.getElementById('kur-content');
   content.innerHTML = `
-    <div class="gc" style="padding:0.9rem 1.1rem;margin-bottom:1rem;display:flex;gap:1rem;flex-wrap:wrap;background:rgba(151,117,250,0.06);border-color:rgba(151,117,250,0.25)">
+    <div class="gc" style="padding:0.9rem 1.1rem;margin-bottom:1.2rem;display:flex;gap:1rem;flex-wrap:wrap;background:rgba(151,117,250,0.06);border-color:rgba(151,117,250,0.25)">
       <div style="font-size:0.78rem;color:var(--text2)">⏱ ${kelas.jam} jam total · ${kelas.sesi} sesi × 2 jam/sesi</div>
       <div style="font-size:0.78rem;color:var(--text2)">📅 ${KELAS_DATES[kelasId]?.start||'–'} – ${KELAS_DATES[kelasId]?.end||'–'}</div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:0.45rem">
-    ${kurikulum.map((m,i)=>`
-      <div style="display:flex;align-items:flex-start;gap:0.7rem;padding:0.6rem 0.8rem;border-radius:8px;background:var(--glass);border:1px solid var(--border)">
-        <div style="width:26px;height:26px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;flex-shrink:0;color:#fff">S${i+1}</div>
-        <div style="font-size:0.82rem;color:var(--text2);padding-top:3px">${m}</div>
-      </div>`).join('')}
+    <div style="font-size:0.85rem;color:var(--text2);margin-bottom:0.9rem;line-height:1.6">Pilih bidang OSN untuk melihat <strong style="color:var(--text)">16 materi</strong> yang akan dibahas:</div>
+    <div class="kur-bidang-grid">
+      ${ALL_BIDANG.map(b => `
+        <button class="kur-bidang-btn" onclick="showKurikulumDetail('${kelasId}','${b.id}')">
+          <div class="kur-bidang-emoji">${b.emoji}</div>
+          <div class="kur-bidang-name">${b.name}</div>
+          <div class="kur-bidang-level">${b.level}</div>
+        </button>
+      `).join('')}
     </div>`;
   document.getElementById('mo-kurikulum').classList.add('open');
+}
+
+function showKurikulumDetail(kelasId, bidangId) {
+  const kelas = KELAS.find(k=>k.id===kelasId);
+  const bidang = ALL_BIDANG.find(b=>b.id===bidangId);
+  if (!kelas || !bidang) return;
+  const materi = BIDANG_KURIKULUM[bidangId] || [];
+  document.getElementById('kur-title').textContent = `${bidang.emoji} ${bidang.name} ${bidang.level}`;
+  const content = document.getElementById('kur-content');
+  content.innerHTML = `
+    <button onclick="openKurikulum('${kelasId}')" style="background:transparent;border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.8rem;color:var(--text2);cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.78rem;margin-bottom:1rem;display:inline-flex;align-items:center;gap:0.35rem">← Pilih bidang lain</button>
+    <div class="gc" style="padding:0.9rem 1.1rem;margin-bottom:1rem;display:flex;gap:1rem;flex-wrap:wrap;background:rgba(151,117,250,0.06);border-color:rgba(151,117,250,0.25)">
+      <div style="font-size:0.76rem;color:var(--lilac2);font-weight:600">${kelas.name}</div>
+      <div style="font-size:0.76rem;color:var(--text2)">⏱ ${kelas.jam} jam · ${kelas.sesi} sesi × 2 jam</div>
+      <div style="font-size:0.76rem;color:var(--text2)">📚 ${materi.length} materi</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.45rem">
+    ${materi.map((m,i)=>`
+      <div style="display:flex;align-items:flex-start;gap:0.7rem;padding:0.65rem 0.85rem;border-radius:8px;background:var(--glass);border:1px solid var(--border)">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;flex-shrink:0;color:#fff">S${i+1}</div>
+        <div style="font-size:0.85rem;color:var(--text2);padding-top:4px;line-height:1.45">${m}</div>
+      </div>`).join('')}
+    </div>`;
 }
 
 // Patch renderKelas to include dates + kurikulum button
@@ -3441,7 +3962,7 @@ function renderKelas() {
       <div class="kelas-tags">${tags}</div>
       <div class="kelas-price">Rp${k.harga.ind.toLocaleString('id')} <small>/ individu</small></div>
       <div style="display:flex;gap:0.5rem;margin-top:auto;padding-top:0.8rem">
-        <button class="btn btn-o" style="flex:1;padding:0.55rem 0.7rem;font-size:0.8rem" onclick="openKurikulum('\${k.id}')">📚 Kurikulum</button>
+        <button class="btn btn-o" style="flex:1;padding:0.55rem 0.7rem;font-size:0.8rem" onclick="openKurikulum('\${k.id}')">Kurikulum</button>
         <button class="btn btn-g" style="flex:2;padding:0.55rem 1rem;font-size:0.8rem" onclick="openDaftarPel('\${k.id}')">Daftar →</button>
       </div>`;
     grid.appendChild(c);
@@ -3520,27 +4041,29 @@ function renderBlindBidangBtns() {
 
 function updateBlindHint() {
   const hint = document.getElementById('blind-bidang-hint');
-  const openBtn = document.getElementById('openBtn');
-  const boxWrap = document.getElementById('blind-box-wrap');
+  const stage = document.getElementById('blind-stage');
   if(blindSelectedBidang) {
     if(hint) hint.textContent = `✓ Bidang dipilih: ${blindSelectedBidang.emoji} ${blindSelectedBidang.name} ${blindSelectedBidang.level}`;
     if(hint) hint.style.color = 'var(--green)';
-    if(boxWrap) boxWrap.style.display = 'block';
+    if(stage) stage.style.display = 'block';
   } else {
     if(hint) hint.textContent = 'Pilih bidang untuk unlock kotak';
     if(hint) hint.style.color = '';
-    if(boxWrap) boxWrap.style.display = 'none';
+    if(stage) stage.style.display = 'none';
   }
 }
 
-// Patch getRandTutor to filter by bidang
+// Patch getRandTutor to filter by bidang, with fallbacks so we never return undefined
 function getRandTutorByBidang(exclude=null) {
-  let pool = TUTORS_DATA;
+  let bidangPool = TUTORS_DATA;
   if(blindSelectedBidang) {
-    pool = TUTORS_DATA.filter(t=>t.bidang===blindSelectedBidang.bidang||t.bidang===blindSelectedBidang.name);
-    if(!pool.length) pool = TUTORS_DATA; // fallback
+    const f = TUTORS_DATA.filter(t=>t.bidang===blindSelectedBidang.bidang||t.bidang===blindSelectedBidang.name);
+    if(f.length) bidangPool = f;
   }
-  pool = pool.filter(t=>t!==exclude);
+  // Try to exclude the previous tutor — but if that empties the pool, keep the original pool.
+  let pool = bidangPool.filter(t=>t!==exclude);
+  if(!pool.length) pool = bidangPool;
+  if(!pool.length) pool = TUTORS_DATA;
   return pool[Math.floor(Math.random()*pool.length)];
 }
 
@@ -3589,7 +4112,14 @@ function saveBlindCooldown() {
 const _origOpenBox = openBox;
 function openBox() {
   if(!blindSelectedBidang){showToast('⚠️ Pilih bidang dulu!');return;}
-  if(blindState.hasOpened) return;
+  // If a tutor is already revealed and the user just closed the card, re-show it without re-running the animation.
+  if(blindState.hasOpened){
+    if(blindState.currentTutor){
+      const ra = document.getElementById('resultArea');
+      if (!ra.classList.contains('visible')) revealBlindTutor(blindState.currentTutor);
+    }
+    return;
+  }
   const btn = document.getElementById('openBtn');
   btn.disabled = true; btn.textContent = '✨ Membuka...';
   const box = document.getElementById('mysteryBox');
@@ -3615,7 +4145,7 @@ function openBox() {
   },650);
 }
 
-// Patch reshuffleWithReset to use cooldown + bidang-aware pick
+// Patch reshuffleWithReset to use cooldown + bidang-aware pick + new overlay layout
 function reshuffleWithReset() {
   if(blindState.shufflesLeft<=0||blindState.isShuffling) {
     showToast('⛔ Reshuffle sudah digunakan! Tersedia lagi dalam 7 hari.');
@@ -3625,39 +4155,36 @@ function reshuffleWithReset() {
   blindState.shufflesLeft--;
   blindState.lastUsed=Date.now();
   saveBlindCooldown();
+  // Hide result so the box underneath is visible again — they share the same stage area.
   const ra=document.getElementById('resultArea');
   ra.classList.remove('visible');
+  // Reset box back to closed state
+  const box=document.getElementById('mysteryBox');
+  box.classList.remove('open','shaking');
+  document.getElementById('boxEmoji').textContent='🎁';
+  // Replay shake → emoji cycle → open → reveal new card overlaid on top
   setTimeout(()=>{
-    ra.style.display='none';
-    const bw=document.getElementById('blind-box-wrap');
-    bw.style.display='block';
-    const box=document.getElementById('mysteryBox');
-    box.classList.remove('open','shaking');
-    document.getElementById('boxEmoji').textContent='🎁';
+    box.classList.add('shaking');
     setTimeout(()=>{
-      box.classList.add('shaking');
+      box.classList.remove('shaking');
+      const emojis=['🧮','⚡','🧪','💻','🧬','🔭'];
+      const be=document.getElementById('boxEmoji');
+      let i=0;
+      const si=setInterval(()=>{be.textContent=emojis[i%emojis.length];i++;},90);
       setTimeout(()=>{
-        box.classList.remove('shaking');
-        const emojis=['🧮','⚡','🧪','💻','🧬','🔭'];
-        const be=document.getElementById('boxEmoji');
-        let i=0;
-        const si=setInterval(()=>{be.textContent=emojis[i%emojis.length];i++;},90);
+        clearInterval(si);
+        box.classList.add('open');
+        spawnParticlesBurst();
         setTimeout(()=>{
-          clearInterval(si);
-          box.classList.add('open');
-          spawnParticlesBurst();
-          setTimeout(()=>{
-            const nt=getRandTutorByBidang(blindState.currentTutor);
-            blindState.currentTutor=nt;
-            blindState.hasOpened=true;
-            bw.style.display='none';
-            revealBlindTutor(nt);
-            blindState.isShuffling=false;
-          },500);
-        },900);
-      },650);
-    },200);
-  },300);
+          const nt=getRandTutorByBidang(blindState.currentTutor);
+          blindState.currentTutor=nt;
+          blindState.hasOpened=true;
+          revealBlindTutor(nt);
+          blindState.isShuffling=false;
+        },500);
+      },900);
+    },650);
+  },250);
 }
 
 // ═══════════ HERO PARTICLE SPAWNER ═══════════
@@ -3675,22 +4202,67 @@ function spawnHeroParticles() {
   });
 }
 
+// ═══════════ AMBIENT BACKGROUND for non-home pages ═══════════
+// Spawns a wrap of slowly-drifting orbs + floating dots into the .page element of
+// pelatihan / cbt / komunitas / partnership so the content body feels alive — not just the hero.
+function spawnPageAmbient(screenId){
+  const ambientPages = ['s-pelatihan','s-cbt','s-komunitas','s-partnership'];
+  if (!ambientPages.includes(screenId)) return;
+  const screen = document.getElementById(screenId);
+  if (!screen) return;
+  const pageEl = screen.querySelector('.page');
+  if (!pageEl) return;
+  // Make .page positioning context if not already
+  if (getComputedStyle(pageEl).position === 'static') pageEl.style.position = 'relative';
+  // Remove any previous ambient wrap to avoid stacking
+  const old = pageEl.querySelector(':scope > .page-ambient-wrap');
+  if (old) old.remove();
+  const wrap = document.createElement('div');
+  wrap.className = 'page-ambient-wrap';
+  // 3 large drifting orbs scattered across the (long) page
+  const orbCols = ['#3b5bdb','#9775fa','#cc5de8'];
+  const orbCfg = [
+    {top:'25%',  left:'8%',  size:380, op:0.18, d:20, dl:0},
+    {top:'55%',  right:'4%', size:320, op:0.14, d:24, dl:-6},
+    {top:'82%',  left:'45%', size:280, op:0.12, d:22, dl:-12},
+  ];
+  orbCfg.forEach((c,i)=>{
+    const o = document.createElement('div');
+    o.className = 'page-ambient-orb';
+    o.style.cssText = `
+      width:${c.size}px;height:${c.size}px;
+      top:${c.top};${c.left?`left:${c.left}`:`right:${c.right}`};
+      background:${orbCols[i%orbCols.length]};
+      --orb-op:${c.op};--orb-d:${c.d}s;--orb-dl:${c.dl}s;`;
+    wrap.appendChild(o);
+  });
+  // ~22 tiny floating dots distributed vertically through the page
+  const dotCols = ['#9775fa','#cc5de8','#74c0fc','#b197fc'];
+  for (let i=0;i<22;i++){
+    const d = document.createElement('div');
+    d.className = 'page-ambient-dot';
+    const s = 2 + Math.random()*2.5;
+    d.style.cssText = `
+      width:${s}px;height:${s}px;
+      left:${Math.random()*100}%;top:${15 + Math.random()*80}%;
+      background:${dotCols[i%dotCols.length]};
+      --dot-d:${5+Math.random()*5}s;--dot-dl:-${Math.random()*6}s;
+      --dot-op:${0.25 + Math.random()*0.45};`;
+    wrap.appendChild(d);
+  }
+  pageEl.insertBefore(wrap, pageEl.firstChild);
+}
+
 // ═══════════ INIT ON KOMUNITAS ═══════════
 const _origGoPage2 = goPage;
 
 
 // ═══ FIX 9: Reset blind box ═══
 function resetBlindBox() {
+  // Legacy entry point — kept for compatibility. Close the result without re-shuffling.
+  if (typeof closeBlindResult === 'function') return closeBlindResult();
   const ra = document.getElementById('resultArea');
-  ra.classList.remove('visible');
-  ra.style.display = 'none';
-  blindState.hasOpened = false;
-  const box = document.getElementById('mysteryBox');
-  box.classList.remove('open', 'shaking');
-  document.getElementById('boxEmoji').textContent = '🎁';
-  const openBtn = document.getElementById('openBtn');
-  if(openBtn){ openBtn.disabled = false; openBtn.textContent = '🎲 Buka Blind Box'; }
-  updateBlindHint();
+  if (ra) ra.classList.remove('visible');
 }
 
 // ═══ FIX 10: Scroll to section in pelatihan ═══
@@ -3708,7 +4280,245 @@ function scrollToPelSection(id) {
   }
 }
 
+// Scroll to a section in the partnership page (used by hero buttons)
+function scrollToPartnerSection(id) {
+  if(S.screen !== 's-partnership') {
+    goPage('partnership');
+    setTimeout(()=>{
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 500);
+  } else {
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
 
+
+
+
+// ═══════════ TESTIMONI SLIDER ═══════════
+const SLIDER_STATE = {};
+const TESTI_AUTOPLAY_MS = 6000;
+
+function getTestiPerView() {
+  const w = window.innerWidth;
+  if (w <= 640) return 1;
+  if (w <= 900) return 2;
+  return 3;
+}
+
+function startTestiAuto(id) {
+  const state = SLIDER_STATE[id];
+  if (!state) return;
+  clearInterval(state.autoInt);
+  state.autoInt = setInterval(() => nextSlide(id), TESTI_AUTOPLAY_MS);
+}
+
+function stopTestiAuto(id) {
+  const state = SLIDER_STATE[id];
+  if (!state) return;
+  clearInterval(state.autoInt);
+}
+
+function initSlider(id) {
+  const track = document.getElementById('ttrack-'+id);
+  const dotsEl = document.getElementById('tdots-'+id);
+  if(!track || !dotsEl) return;
+
+  // Clear any existing autoInt before we overwrite state (prevents duplicate intervals on re-init)
+  if (SLIDER_STATE[id] && SLIDER_STATE[id].autoInt) {
+    clearInterval(SLIDER_STATE[id].autoInt);
+  }
+
+  const perView = getTestiPerView();
+  const slides = track.querySelectorAll('.testi-slide');
+  const total = slides.length;
+  // Number of pages: each page shows perView slides
+  const pages = Math.ceil(total / perView);
+
+  SLIDER_STATE[id] = { cur: 0, pages, perView, total, autoInt: null, listenersAttached: SLIDER_STATE[id] ? SLIDER_STATE[id].listenersAttached : false };
+
+  // Let CSS media queries control the slide width — clear any inline min-width
+  slides.forEach(s => { s.style.minWidth = ''; });
+
+  // Build dots — one dot per PAGE
+  dotsEl.innerHTML = '';
+  for(let i = 0; i < pages; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'tdot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Halaman testimoni '+(i+1));
+    dot.onclick = () => { goSlide(id, i); startTestiAuto(id); };
+    dotsEl.appendChild(dot);
+  }
+
+  goSlide(id, 0);
+
+  // Auto-play every 6 seconds
+  startTestiAuto(id);
+
+  // Touch / swipe — gesture only, no buttons. Attach listeners only once per slider.
+  if (track && !SLIDER_STATE[id].listenersAttached) {
+    SLIDER_STATE[id].listenersAttached = true;
+    let touchStartX = 0, touchStartY = 0, touchActive = false;
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchActive = true;
+      stopTestiAuto(id);
+    }, {passive:true});
+    track.addEventListener('touchend', e => {
+      if(!touchActive) return;
+      touchActive = false;
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      const dy = touchStartY - e.changedTouches[0].clientY;
+      // Only treat as swipe if mostly horizontal
+      if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        dx > 0 ? nextSlide(id) : prevSlide(id);
+      }
+      // Restart autoplay after touch
+      startTestiAuto(id);
+    }, {passive:true});
+    track.addEventListener('touchcancel', () => {
+      touchActive = false;
+      startTestiAuto(id);
+    }, {passive:true});
+
+    // Mouse drag (desktop)
+    let mouseStartX = 0, isDragging = false;
+    track.addEventListener('mousedown', e => {
+      mouseStartX = e.clientX;
+      isDragging = true;
+      stopTestiAuto(id);
+    });
+    track.addEventListener('mouseup', e => {
+      if(!isDragging) return;
+      isDragging = false;
+      const diff = mouseStartX - e.clientX;
+      if(Math.abs(diff) > 40) diff > 0 ? nextSlide(id) : prevSlide(id);
+      startTestiAuto(id);
+    });
+    track.addEventListener('mouseleave', () => {
+      if(isDragging) { isDragging = false; startTestiAuto(id); }
+    });
+
+    // Pause on hover (desktop)
+    const wrap = document.getElementById('tslider-'+id);
+    if(wrap) {
+      wrap.addEventListener('mouseenter', () => stopTestiAuto(id));
+      wrap.addEventListener('mouseleave', () => startTestiAuto(id));
+    }
+  }
+}
+
+function goSlide(id, pageIdx) {
+  const state = SLIDER_STATE[id];
+  if(!state) return;
+  pageIdx = Math.max(0, Math.min(pageIdx, state.pages - 1));
+  state.cur = pageIdx;
+
+  const track = document.getElementById('ttrack-'+id);
+  const dotsEl = document.getElementById('tdots-'+id);
+  if(!track) return;
+
+  // Offset by pageIdx * perView slides
+  const slideWidthPct = 100 / state.perView;
+  const offset = -(pageIdx * state.perView * slideWidthPct);
+  // But cap so we don't go past last slide
+  const maxOffset = -((state.total - state.perView) * slideWidthPct);
+  const finalOffset = Math.max(maxOffset, offset);
+  track.style.transform = `translateX(${finalOffset}%)`;
+
+  if(dotsEl) {
+    dotsEl.querySelectorAll('.tdot').forEach((d, i) => {
+      d.classList.toggle('active', i === pageIdx);
+    });
+  }
+}
+
+function nextSlide(id) {
+  const state = SLIDER_STATE[id];
+  if(!state) return;
+  goSlide(id, state.cur >= state.pages - 1 ? 0 : state.cur + 1);
+}
+
+function prevSlide(id) {
+  const state = SLIDER_STATE[id];
+  if(!state) return;
+  goSlide(id, state.cur <= 0 ? state.pages - 1 : state.cur - 1);
+}
+
+function initAllSliders() {
+  ['cbt','pel','kom'].forEach(id => {
+    if(document.getElementById('ttrack-'+id)) initSlider(id);
+  });
+}
+
+let _testiResizeTO = null;
+window.addEventListener('resize', () => {
+  clearTimeout(_testiResizeTO);
+  _testiResizeTO = setTimeout(() => {
+    ['cbt','pel','kom'].forEach(id => {
+      if(document.getElementById('ttrack-'+id)) initSlider(id);
+    });
+  }, 180);
+});
+
+// ═══════════ BLIND BOX: DROPDOWN BIDANG ═══════════
+function buildBlindBidangDropdown() {
+  const sel = document.getElementById('blind-bidang-sel');
+  if(!sel) return;
+  sel.innerHTML = '<option value="">-- Pilih Bidang OSN --</option>';
+  ALL_BIDANG.forEach(b => {
+    const o = document.createElement('option');
+    o.value = b.id;
+    o.textContent = `${b.emoji} ${b.name} — ${b.level}`;
+    sel.appendChild(o);
+  });
+}
+
+function selectBlindBidang(bidangId) {
+  if(!bidangId) {
+    blindSelectedBidang = null;
+    updateBlindHint();
+    return;
+  }
+  blindSelectedBidang = ALL_BIDANG.find(b => b.id === bidangId) || null;
+  updateBlindHint();
+}
+
+// Override renderBlindBidangBtns to fill dropdown instead
+function renderBlindBidangBtns() {
+  buildBlindBidangDropdown();
+}
+
+// ═══════════ KELAS CARD: clean renderKelas ═══════════
+function renderKelas() {
+  const grid = document.getElementById('kelas-grid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  KELAS.forEach(k => {
+    const c = document.createElement('div');
+    c.className = 'gc kelas-card';
+    const tags = k.tags.map(t => `<span class="prog-tag">${t}</span>`).join('');
+    const dates = KELAS_DATES ? KELAS_DATES[k.id] : null;
+    c.innerHTML = `
+      <div class="kelas-ico">${k.emoji}</div>
+      <div class="kelas-badge" style="background:${k.badgeColor};color:${k.badgeTextColor}">${k.badge}</div>
+      <div class="kelas-name">${k.name}</div>
+      <div class="kelas-meta">👤 ${k.tutor}</div>
+      ${dates ? `<div class="kelas-meta">📅 ${dates.start} – ${dates.end}</div>` : ''}
+      <div class="kelas-meta">⏱ ${k.jam} jam (${k.sesi} sesi × 2 jam)</div>
+      <div class="kelas-desc">${k.desc}</div>
+      <div class="kelas-tags">${tags}</div>
+      <div class="kelas-price">Rp${k.harga.ind.toLocaleString('id')} <small>/ individu</small></div>
+      <div class="kelas-btns">
+        <button class="btn btn-o" onclick="openKurikulum('${k.id}')">Kurikulum</button>
+        <button class="btn btn-g" onclick="openDaftarPel('${k.id}')">Register</button>
+      </div>`;
+    grid.appendChild(c);
+  });
+}
 
 // ═══════════ TOAST ═══════════
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2700);}
@@ -3722,12 +4532,21 @@ document.addEventListener('DOMContentLoaded',()=>{
   // Navbar scroll
   window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>10);});
   // Close mobile nav on outside
-  initPageAnims();spawnHeroParticles();
+  initPageAnims();spawnHeroParticles();initAllSliders();buildBlindBidangDropdown();
   loadBlindCooldown();
   renderBlindBidangBtns();updateBlindHint();
   document.addEventListener('fullscreenchange',handleFsChange);
   document.addEventListener('webkitfullscreenchange',handleFsChange);
   document.addEventListener('mozfullscreenchange',handleFsChange);
+  // Move submit-confirmation modals inside #s-exam so they remain visible when exam is in fullscreen mode
+  // (elements outside the fullscreen target are hidden by the browser during fullscreen)
+  const _examEl = document.getElementById('s-exam');
+  if (_examEl) {
+    ['mo-submit','mo-timeup'].forEach(idd => {
+      const m = document.getElementById(idd);
+      if (m && m.parentElement !== _examEl) _examEl.appendChild(m);
+    });
+  }
   document.addEventListener('click',e=>{const nm=document.getElementById('nav-mobile');if(nm.classList.contains('open')&&!nm.contains(e.target)&&!e.target.closest('.nav-menu-btn'))nm.classList.remove('open');});
 });
 </script>
@@ -3737,29 +4556,32 @@ document.addEventListener('DOMContentLoaded',()=>{
 ══════════════════════════════ -->
 <div class="screen" id="s-komunitas">
   <div class="page">
-  <div class="container">
-
-    <!-- HERO with animation -->
-    <div class="page-banner slide-up" style="margin-bottom:2rem">
-      <div class="page-hero-grid"></div>
-      <div class="page-anim-orb pao1"></div>
-      <div class="page-anim-orb pao2"></div>
-      <div style="position:relative;z-index:1;padding:3rem 2rem 2.5rem">
-        <div class="slabel">Gratis & Volunteer-Driven</div>
-        <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-1.5px;margin-bottom:0.8rem">Komunitas <span class="grad-text">OSN</span> ONECAMP</h1>
-        <p style="font-size:1rem;color:var(--text2);max-width:560px;margin:0 auto 1.5rem;line-height:1.75">Program komunitas <strong style="color:var(--text)">100% gratis</strong> yang dioperasikan oleh volunteer berdedikasi. Belajar, berdiskusi, dan berkembang bersama ribuan pejuang OSN dari seluruh Indonesia.</p>
-        <div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap">
+  <div class="page-hero">
+      <div class="ph-bg"></div>
+      <div class="ph-grid"></div>
+      <div class="ph-diag"></div>
+      <div class="ph-orb ph-o1"></div>
+      <div class="ph-orb ph-o2"></div>
+      <div class="ph-orb ph-o3"></div>
+      <div class="ph-rings"><div class="ph-ring ph-r1"></div><div class="ph-ring ph-r2"></div><div class="ph-ring ph-r3"></div></div>
+      <div class="ph-pts" id="ph-pts-komunitas"></div>
+      <div class="ph-content">
+        <div class="anim-pill"><div class="anim-pulse"></div>Gratis &amp; Volunteer-Driven</div>
+        <h1 style="font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-1.5px;margin-bottom:0.8rem">Komunitas <span class="grad-text">OSN</span> ONECAMP</h1>
+        <p style="font-size:0.95rem;color:var(--text2);max-width:520px;margin:0 auto 1.8rem;line-height:1.75">Program komunitas <strong style="color:var(--text)">100% gratis</strong> yang dioperasikan oleh volunteer berdedikasi. Belajar, berdiskusi, dan berkembang bersama ribuan pejuang OSN seluruh Indonesia.</p>
+        <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.8rem">
           <span class="tag t-green">✦ Gratis Selamanya</span>
           <span class="tag t-lilac">💬 WhatsApp Group</span>
           <span class="tag t-blue">🤝 Volunteer-driven</span>
           <span class="tag t-yellow">📚 12 Bidang OSN</span>
         </div>
-        <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem">
+        <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap">
           <button class="btn btn-g" onclick="document.getElementById('kom-bidang-grid').scrollIntoView({behavior:'smooth'})">🚀 Lihat Open Gate</button>
           <button class="btn btn-o" onclick="document.getElementById('volunteer-section').scrollIntoView({behavior:'smooth'})">✨ Daftar Jadi Admin</button>
         </div>
       </div>
     </div>
+    <div class="container">
 
     <!-- KEGIATAN -->
     <div class="slabel reveal" style="text-align:center">Apa yang Kami Lakukan</div>
@@ -3893,8 +4715,93 @@ document.addEventListener('DOMContentLoaded',()=>{
         <button class="btn btn-g btn-full" onclick="submitVolunteer()">Daftar Jadi Volunteer →</button>
       </div>
     </div>
-
-    <footer style="margin-top:auto">
+    <div style="height:3rem"></div>
+  </div>
+  
+      <!-- TESTIMONI SLIDER -->
+      <div class="container" style="margin-top:4rem;padding-top:3rem;padding-bottom:4.5rem;border-top:1px solid var(--border)">
+        <div class="slabel" style="text-align:center">Kata Mereka</div>
+        <div class="stitle" style="text-align:center;margin-bottom:2rem">Cerita <span class="grad-text">Nyata</span></div>
+        <div class="testi-slider-wrap" id="tslider-kom">
+          <div class="testi-track" id="ttrack-kom">
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Sejak gabung ONECAMP nilai try out saya naik drastis dari 45 ke 87! Tutor di sini beda banget — mereka tahu trik yang nggak ada di buku mana pun.</p>
+              <div class="testi-prestasi">🥉 Perunggu OSN Matematika 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#9775fa,#3b5bdb)">AZ</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Alya Zahra</div>
+                  <div class="testi-school">📍 SMAN 3 Jakarta</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Komunitas ONECAMP luar biasa. Bisa tanya 24 jam, selalu ada yang bantu. Seperti punya satu angkatan medalis yang siap ngulik soal bareng.</p>
+              <div class="testi-prestasi">🥇 Emas OSN Fisika 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#cc5de8,#9775fa)">MR</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Muhammad Rafi</div>
+                  <div class="testi-school">📍 SMAN 8 Bandung</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Modulnya detail banget dan try out-nya mirip banget sama soal asli OSN. Nggak nyesel — ini yang bawa saya ke podium.</p>
+              <div class="testi-prestasi">🥈 Perak OSN Biologi 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#74c0fc,#3b5bdb)">DS</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Dwi Sekar</div>
+                  <div class="testi-school">📍 SMAN 1 Surabaya</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="4 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-off">★</span></div>
+              <p class="testi-text">Pelatihan ONECAMP beda level. Tutor medalis beneran ngerti cara berpikir soal olimpiade, bukan cuma hafalan rumus.</p>
+              <div class="testi-prestasi">🥈 Perak OSN Kimia 2024</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#ffd700,#f59e0b)">RN</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Rizal Nanda</div>
+                  <div class="testi-school">📍 SMAN 2 Yogyakarta</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="5 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span></div>
+              <p class="testi-text">Komunitas gratis tapi kualitasnya premium. Ada quiz mingguan, bahas soal bareng, dan admin yang aktif banget ngejawab pertanyaan.</p>
+              <div class="testi-prestasi">🌟 Anggota Komunitas OSN</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#34d399,#059669)">SP</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Sari Pratiwi</div>
+                  <div class="testi-school">📍 SMAN 1 Semarang</div>
+                </div>
+              </div>
+            </div></div>
+            <div class="testi-slide"><div class="gc testi-card">
+              <div class="stars" aria-label="4 dari 5"><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-on">★</span><span class="s-off">★</span></div>
+              <p class="testi-text">Try out ONECAMP levelnya pas banget. Setelah rutin ikut 3 seri, analisis kelemahan saya jadi jauh lebih tajam dan skor naik 30 poin.</p>
+              <div class="testi-prestasi">📝 Peserta TO Seri 1–3</div>
+              <div class="testi-profile">
+                <div class="testi-photo" style="background:linear-gradient(135deg,#f87171,#dc2626)">BK</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Bagas Kurnia</div>
+                  <div class="testi-school">📍 SMAN 5 Medan</div>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+        <div class="testi-dots" id="tdots-kom"></div>
+      </div>
+    <!-- FOOTER -->
+    <footer>
       <div class="footer-logo">ONECAMP</div>
       <div class="footer-socials">
         <a class="social-btn" href="https://instagram.com/ambiscamp" target="_blank" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -3905,9 +4812,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       </div>
       <div class="footer-copy">© 2025 ONECAMP. Hak Cipta Dilindungi.</div>
     </footer>
-
-    <div style="height:3rem"></div>
-  </div>
   </div>
 </div>
 
